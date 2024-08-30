@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AllCategories extends StatelessWidget {
   String name;
 
+
   List<Map<String, dynamic>> specificRecipes = [];
 
   AllCategories({super.key, required this.name, required this.specificRecipes});
@@ -20,9 +21,15 @@ class AllCategories extends StatelessWidget {
               itemCount: specificRecipes.length,
               itemBuilder: (context, index) {
                 return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    padding: const EdgeInsets.all(20),
                     child: Container(
-                      height: 300,
+
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.zero,
+                        border: Border.all(color: Colors.pink),
+                        
+                      ),
+                      height: 400,
                       width: 300,
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,9 +42,17 @@ class AllCategories extends StatelessWidget {
                              Text(
                               specificRecipes[index]['name'],
                               style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w800,
+                                fontSize: 26,
+                                fontWeight: FontWeight.w800,color: Colors.pink
                               ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(specificRecipes[index]['ingredients'].toString()),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(specificRecipes[index]['instructions'].toString()),
                             ),
                           ]),
                     ));

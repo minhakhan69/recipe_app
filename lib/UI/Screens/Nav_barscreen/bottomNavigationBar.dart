@@ -7,6 +7,7 @@ import 'package:cook_together/UI/Screens/profile_screen/profile_screen.dart';
 import 'package:cook_together/UI/Screens/setting_screen/settin_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../addRecipe_screen/add_recipe.dart';
 import '../search_screen/search_screen.dart';
 
 class Bottomnavigationbar extends StatefulWidget {
@@ -33,16 +34,16 @@ class _BottomnavigationbarState extends State<Bottomnavigationbar> {
       // title: 'Home',
     ),
     TabItem(
-      icon: Icons.search_sharp,
-      title: 'Search',
+      icon: Icons.search,
+      title: 'search' ,
+    ),
+    TabItem(
+      icon: Icons.add,
+      title: 'add recipe',
     ),
     TabItem(
       icon: Icons.favorite_border,
       title: 'favorite',
-    ),
-    TabItem(
-      icon: Icons.settings,
-      title: 'settings',
     ),
     TabItem(
       icon: Icons.account_box,
