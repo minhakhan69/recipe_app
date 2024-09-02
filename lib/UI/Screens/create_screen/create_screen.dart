@@ -15,14 +15,14 @@ class _CreateScreenState extends State<CreateScreen> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 40),
+              padding: EdgeInsets.only(top: 50),
               child: Center(
                 child: Container(
                   child: Icon(Icons.camera_alt,size: 50,color: Colors.pink,),
-                  height: 210,
+                  height: 190,
                   width: 280,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.zero,
+                      borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: Colors.pink)),
                 ),
               ),
@@ -77,7 +77,7 @@ class _CreateScreenState extends State<CreateScreen> {
                     hintText: 'Enter instructions...',
                     suffixIcon: Icon(Icons.edit,color: Colors.pink),
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20))),
+                        borderRadius: BorderRadius.circular(20),)),
               ),
             ),
             Container(
