@@ -11,16 +11,17 @@ class _CreateScreenState extends State<CreateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.pinkAccent.withOpacity(0.06),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 50),
+              padding: EdgeInsets.only(top: 50.h),
               child: Center(
                 child: Container(
                   child: Icon(Icons.camera_alt,size: 50,color: Colors.pink,),
-                  height: 190,
-                  width: 280,
+                  height: 35.h,
+                  width: 100.w,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: Colors.pink)),
@@ -28,7 +29,7 @@ class _CreateScreenState extends State<CreateScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 15),
+              padding: const EdgeInsets.only(top: 1.h),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
@@ -80,21 +81,24 @@ class _CreateScreenState extends State<CreateScreen> {
                         borderRadius: BorderRadius.circular(20),)),
               ),
             ),
-            Container(
-              height: 70,
-              width: 150,
-              child: Center(
-                  child: Text(
-                'Save',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 30,
-                    color: Colors.pink),
-              )),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                border: Border.all(color: Colors.pink),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 60,
+                width: 150,
+                child: Center(
+                    child: Text(
+                  'Save',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 30,
+                      color: Colors.pink),
+                )),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(color: Colors.pink),
+                ),
               ),
             ),
           ],

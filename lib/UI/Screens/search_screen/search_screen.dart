@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -10,9 +11,9 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.pinkAccent.withOpacity(0.06),
       body: Padding(
-        padding:  EdgeInsets.only(top: 65),
+        padding:  EdgeInsets.only(top: 8.h),
         child: Column(
           children: [
             Padding(

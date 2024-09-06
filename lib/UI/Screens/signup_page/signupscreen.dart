@@ -1,5 +1,6 @@
 import 'package:cook_together/UI/Screens/login_page/loginscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class Signupscreen extends StatefulWidget {
   const Signupscreen({super.key});
@@ -16,31 +17,34 @@ class _SignupscreenState extends State<Signupscreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 70),
+          padding:  EdgeInsets.only(top: 9.h),
           child: Center(
             child: Column(
               children: [
-                Image.asset('assets/images/logo.png', height: 130),
-                SizedBox(height: 20),
-                Text(
-                  'Continue With',
-                  style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
+                Image.asset('assets/images/logo.png', height: 15.h),
+                SizedBox(height: 3.h),
+                Padding(
+                  padding:  EdgeInsets.only(bottom: 3.h),
+                  child: Text(
+                    'Continue With',
+                    style: TextStyle(
+                        fontSize: 0.350.dp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 15,
+                  padding:  EdgeInsets.only(
+                    left: 3.w,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 15),
+                        padding: EdgeInsets.only(top: 0.1.h),
                         child: Container(
-                          height: 50,
-                          width: 120,
+                          height: 8.h,
+                          width: 45.w,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(color: Colors.black),
@@ -52,11 +56,11 @@ class _SignupscreenState extends State<Signupscreen> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Image.asset('assets/images/Facebook.png',
-                                    height: 25),
+                                    height: 28.h),
                                 Text(
                                   'Facebook',
                                   style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 0.285.dp,
                                       fontWeight: FontWeight.w700),
                                 ),
                               ],
@@ -65,10 +69,10 @@ class _SignupscreenState extends State<Signupscreen> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 15),
+                        padding: EdgeInsets.only(top: 0.1.h),
                         child: Container(
-                          height: 50,
-                          width: 120,
+                          height: 8.h,
+                          width: 45.w,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(color: Colors.black),
@@ -80,12 +84,12 @@ class _SignupscreenState extends State<Signupscreen> {
                               children: [
                                 Image.asset(
                                   'assets/images/Google.png',
-                                  height: 35,
+                                  height: 25.h,
                                 ),
                                 Text(
                                   'Google',
                                   style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 0.285.dp,
                                       fontWeight: FontWeight.w700),
                                 ),
                               ],
@@ -97,102 +101,115 @@ class _SignupscreenState extends State<Signupscreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 25),
+                  padding:  EdgeInsets.only(top: 0.1.h),
                   child: Column(
                     children: [
                       Text(
                         'Or',
                         style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                      ),
-                      Text(
-                        'Create your account',
-                        style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 0.285.dp,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(right: 300),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Create your account',
+                          style: TextStyle(
+                              fontSize: 0.315.dp,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: 80.w),
                         child: Text(
                           'Email',
                           style: TextStyle(
                               fontWeight: FontWeight.w700,
                               color: Colors.black,
-                              fontSize: 18),
+                              fontSize: 0.250.dp),
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 1.h,
                       ),
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Enter your Email id',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Enter your Email id',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
                           ),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(right: 280),
+                        padding: EdgeInsets.only(right: 72.w),
                         child: Text(
                           'Password',
                           style: TextStyle(
                               fontWeight: FontWeight.w700,
-                              fontSize: 15,
+                              fontSize: 0.250.dp,
                               color: Colors.black),
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 1.h,
                       ),
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Enter a password',
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25)),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Enter a password',
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(25)),
+                          ),
                         ),
                       ),
                       CheckboxListTile(
-                        title: Text(
-                          'Remember Me',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Colors.black),
-                        ),
                         value: isChoose,
                         onChanged: (Value) {
                           setState(() {
                             isChoose = Value;
                           });
                         },
+                        title: Text(
+                          'Remember Me',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 0.300.dp,
+                              color: Colors.black),
+                        ),
+
                       ),
                       Container(
-                        height: 44,
-                        width: 240,
+                        height: 6.h,
+                        width: 50.w,
                         child: Center(
                             child: Text(
                               'Sign up',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 20),
+                                  fontWeight: FontWeight.w600, fontSize: 0.315.dp
+                                  ,color: Colors.white),
                             )),
                         decoration: BoxDecoration(
-                          color: Colors.orange,
-                          border: Border.all(color: Colors.brown),
+                          color: Colors.pink,
+                          border: Border.all(color: Colors.purple),
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
                       Row(
                         children: [
                           SizedBox(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'already have an account ?',
-                                style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16),
+                            child: Center(
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 10.h,top: 1.h),
+                                child: Text(
+                                  'already have an account ?',
+                                  style: TextStyle(fontWeight: FontWeight.w400,fontSize: 0.250.dp),
+                                ),
                               ),
                             ),
                           ),
@@ -201,10 +218,14 @@ class _SignupscreenState extends State<Signupscreen> {
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(builder: (context)=>Loginscreen()));
                             },
-                            child: Text(
-                              'Login',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black),
+                            child: Padding(
+                              padding:  EdgeInsets.only(top: 1.h),
+                              child: Text(
+                                'Login',
+                                style: TextStyle(
+                                    fontSize: 0.280.dp
+                                    , fontWeight: FontWeight.bold,color: Colors.black),
+                              ),
                             ),
                           )
                         ],

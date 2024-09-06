@@ -1,6 +1,7 @@
 import 'package:cook_together/UI/Screens/all_categories/all_categories.dart';
 import 'package:cook_together/UI/Screens/recipe_detailscreen/Recipe_details.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -525,181 +526,187 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 30, right: 15, left: 5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  'Hungry ? Choose a dish...',
-                  style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.pink),
-                ),
-                Image.asset(
-                  'assets/images/logo.png',
-                  height: 65,
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              decoration: InputDecoration(
-                suffixIcon: Icon(
-                  Icons.search,
-                  color: Colors.pink,
-                ),
-                hintText: 'Whats Cooking in your mind...?',
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 1.h, right: 5.w, left: 0.5.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    'Hungry ? Choose a dish...',
+                    style: TextStyle(
+                        fontSize: 0.280.dp,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.pink),
+                  ),
+                  Image.asset(
+                    'assets/images/logo.png',
+                    height: 8.h,
+                  ),
+                ],
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Categories',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  suffixIcon: Icon(
+                    Icons.search,
+                    color: Colors.pink,
+                  ),
+                  hintText: 'Whats Cooking in your mind...?',
+                  border:
+                      OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                 ),
-                Text(
-                  'see more',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
-                )
-              ],
+              ),
             ),
-          ),
-          Flexible(
-            child: SizedBox(
-              height: 210,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: categories.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          // color: Colors.pink.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.pink)),
-                      child: Column(
-                        children: [
-                          InkWell(
-                            onTap:(){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => AllCategories(
-                                  name:categories[index]['name'].toString() ,
-                                  specificRecipes: categories[index]['recipes']),));
-                            },
-                            child: Image.asset(
-                              categories[index]['image'],
-                              height: 150,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Categories',
+                    style: TextStyle(fontSize: 0.285.dp, fontWeight: FontWeight.w700),
+                  ),
+                  Text(
+                    'see more',
+                    style: TextStyle(fontSize: 0.200.dp, fontWeight: FontWeight.w300),
+                  )
+                ],
+              ),
+            ),
+            Flexible(
+              child: SizedBox(
+                height: 40.h,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 1.h),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            // color: Colors.pink.withOpacity(0.5),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Colors.pink)),
+                        child: Column(
+                          children: [
+                            InkWell(
+                              onTap:(){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => AllCategories(
+                                    name:categories[index]['name'].toString() ,
+                                    specificRecipes: categories[index]['recipes']),));
+                              },
+                              child: Image.asset(
+                                categories[index]['image'],
+                                height: 20.h,
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              categories[index]['name'],
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                categories[index]['name'],
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w900,
+                                    fontStyle: FontStyle.italic),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+            Padding(
+              padding:  EdgeInsets.only(right: 66.w),
+              child: Text('Trending',style: TextStyle(fontSize: 0.315.dp,fontWeight: FontWeight.w700),),
+            ),
+            Expanded(
+              child: GridView.builder(
+                  itemCount: popularRecipes.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 2 / 2.4,
+                  ),
+                  itemBuilder: (ctx, index) {
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RecipeDetails(
+                                    name:
+                                        popularRecipes[index]['name'].toString(),
+                                    image:
+                                        popularRecipes[index]['image'].toString(),
+                                    ingredients: popularRecipes[index]
+                                            ['ingredients']
+                                        .toString(),
+                                    instructions: popularRecipes[index]
+                                            ['instructions']
+                                        .toString())));
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Colors.pink)),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              popularRecipes[index]['image'],
+                              height: 17.h,
+                              width: double.infinity,
+                            ),
+                            Text(
+                              popularRecipes[index]['name'],
                               style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w900,
-                                  fontStyle: FontStyle.italic),
+                                  fontWeight: FontWeight.w800,
+                                  fontStyle: FontStyle.italic,
+                                  fontSize: 0.200.dp),
                             ),
-                          ),
-                        ],
+                            Text(
+                              popularRecipes[index]['time'],
+                              style: TextStyle(fontWeight: FontWeight.w500),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(Icons.group),
+                                      Text(
+                                        popularRecipes[index]['people'],
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                  Icon(Icons.favorite_border_outlined),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
-              ),
+                    );
+                  }),
             ),
-          ),
-          Expanded(
-            child: GridView.builder(
-                itemCount: popularRecipes.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                  childAspectRatio: 2 / 2.4,
-                ),
-                itemBuilder: (ctx, index) {
-                  return InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RecipeDetails(
-                                  name:
-                                      popularRecipes[index]['name'].toString(),
-                                  image:
-                                      popularRecipes[index]['image'].toString(),
-                                  ingredients: popularRecipes[index]
-                                          ['ingredients']
-                                      .toString(),
-                                  instructions: popularRecipes[index]
-                                          ['instructions']
-                                      .toString())));
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.pink)),
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            popularRecipes[index]['image'],
-                            height: 120,
-                            width: double.infinity,
-                          ),
-                          Text(
-                            popularRecipes[index]['name'],
-                            style: TextStyle(
-                                fontWeight: FontWeight.w800,
-                                fontStyle: FontStyle.italic,
-                                fontSize: 16),
-                          ),
-                          Text(
-                            popularRecipes[index]['time'],
-                            style: TextStyle(fontWeight: FontWeight.w500),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.group),
-                                    Text(
-                                      popularRecipes[index]['people'],
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                  ],
-                                ),
-                                Icon(Icons.favorite_border_outlined),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                }),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

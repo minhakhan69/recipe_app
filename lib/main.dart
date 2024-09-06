@@ -1,8 +1,15 @@
+import 'package:cook_together/UI/Screens/api_testing_tool.dart';
 import 'package:cook_together/UI/Screens/splash_screen/splash_screen.dart';
+import 'package:cook_together/UI/api_testing.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ResponsiveSizer(
+    builder: (context, orientation, screenType) {
+      return MyApp();
+    },
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -34,8 +41,6 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: SplashScreen(),
-
     );
   }
 }
-

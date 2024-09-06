@@ -2,12 +2,13 @@ import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:awesome_bottom_bar/tab_item.dart';
 import 'package:awesome_bottom_bar/widgets/inspired/inspired.dart';
 import 'package:cook_together/UI/Screens/create_screen/create_screen.dart';
+import 'package:cook_together/UI/Screens/favourite_screen/favourite_screen.dart';
 import 'package:cook_together/UI/Screens/home_screen/home_screen.dart';
 import 'package:cook_together/UI/Screens/profile_screen/profile_screen.dart';
 import 'package:cook_together/UI/Screens/setting_screen/settin_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../addRecipe_screen/add_recipe.dart';
+
 import '../search_screen/search_screen.dart';
 
 class Bottomnavigationbar extends StatefulWidget {
@@ -23,10 +24,8 @@ class _BottomnavigationbarState extends State<Bottomnavigationbar> {
     HomeScreen(),
     SearchScreen(),
     CreateScreen(),
+    FavouriteScreen(),
     SettinScreen(),
-    ProfileScreen(),
-
-
   ];
   List<TabItem> items = [
     TabItem(
@@ -35,7 +34,7 @@ class _BottomnavigationbarState extends State<Bottomnavigationbar> {
     ),
     TabItem(
       icon: Icons.search,
-      title: 'search' ,
+      title: 'search',
     ),
     TabItem(
       icon: Icons.add,
@@ -43,7 +42,7 @@ class _BottomnavigationbarState extends State<Bottomnavigationbar> {
     ),
     TabItem(
       icon: Icons.favorite_border,
-      title: 'favorite',
+      title: 'favourite',
     ),
     TabItem(
       icon: Icons.account_box,
@@ -67,7 +66,7 @@ class _BottomnavigationbarState extends State<Bottomnavigationbar> {
           items: items,
           backgroundColor: Colors.pink,
           indexSelected: Selectedindex,
-          color: Colors.black,
+          color: Colors.white,
           colorSelected: Colors.white,
           onTap: (int index) => setState(() {
             Selectedindex = index;

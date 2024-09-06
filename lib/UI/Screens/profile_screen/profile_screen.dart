@@ -16,7 +16,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           'Profile',
           style: TextStyle(
               color: Colors.white,
-              fontSize: 30,
+              fontSize: 36,
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w700),
         ),
@@ -65,7 +65,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Icon(Icons.person),
 
-                  Text('Profile'),
+                  Text('Profile',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),),
                 ],
 
             ),
@@ -77,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               children: [
                 Icon(Icons.favorite_border),
-                Text('Favorite'),
+                Text('Favourite',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 18),),
               ],
             ),
           ),
@@ -86,7 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               children: [
                 Icon(Icons.lock),
-                Text('Privacy Policy'),
+                Text('Privacy Policy',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400),),
               ],
             ),
           ),
@@ -95,7 +95,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               children: [
                 Icon(Icons.settings),
-                Text('Settings'),
+                Text('Settings',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400),),
               ],
             ),
           ),
@@ -104,7 +104,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               children: [
                 Icon(Icons.help),
-                Text('Help'),
+                Text('Help',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16),),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Icon(Icons.language),
+                Text('Languages',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400),),
               ],
             ),
           ),
@@ -113,7 +122,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               children: [
                 Icon(Icons.logout),
-                Text('Logout'),
+                Text('Logout',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16),),
               ],
             ),
           ),

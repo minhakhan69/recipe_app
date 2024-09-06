@@ -4,6 +4,7 @@ import 'package:cook_together/UI/Screens/home_screen/home_screen.dart';
 import 'package:cook_together/core/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../Nav_barscreen/bottomNavigationBar.dart';
 import '../signup_page/signupscreen.dart';
@@ -25,31 +26,30 @@ class _LoginscreenState extends State<Loginscreen> {
 
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 70),
+          padding: EdgeInsets.only(top: 9.h),
           child: Center(
             child: Column(
               children: [
-                Image.asset('assets/images/logo.png', height: 130),
-                SizedBox(height: 20),
+                Image.asset('assets/images/logo.png', height: 15.h),
+                SizedBox(height: 3.h),
                 Text(
                   'Continue With',
                   style: TextStyle(
-                      fontSize: 26,
+                      fontSize: 0.350.dp,
                       fontWeight: FontWeight.bold,
                       color: Colors.black),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 15,
-                  ),
+                  padding:  EdgeInsets.only(
+                    left: 3.w,),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 15),
+                        padding: EdgeInsets.only(top: 0.1.h),
                         child: Container(
-                          height: 50,
-                          width: 120,
+                          height: 8.h,
+                          width: 45.w,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(color: Colors.black),
@@ -61,11 +61,11 @@ class _LoginscreenState extends State<Loginscreen> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Image.asset('assets/images/Facebook.png',
-                                    height: 25),
+                                    height: 28.h),
                                 Text(
                                   'Facebook',
                                   style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 0.285.dp,
                                       fontWeight: FontWeight.w700),
                                 ),
                               ],
@@ -74,10 +74,10 @@ class _LoginscreenState extends State<Loginscreen> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 15),
+                        padding:  EdgeInsets.only(top: 0.1.h),
                         child: Container(
-                          height: 50,
-                          width: 120,
+                          height: 8.h,
+                          width: 45.w,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(color: Colors.black),
@@ -89,12 +89,12 @@ class _LoginscreenState extends State<Loginscreen> {
                               children: [
                                 Image.asset(
                                   'assets/images/Google.png',
-                                  height: 35,
+                                  height: 25.h,
                                 ),
                                 Text(
                                   'Google',
                                   style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 0.285.dp,
                                       fontWeight: FontWeight.w700),
                                 ),
                               ],
@@ -106,35 +106,35 @@ class _LoginscreenState extends State<Loginscreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 25),
+                  padding:  EdgeInsets.only(top: 0.1.h),
                   child: Column(
                     children: [
                       Text(
                         'Or',
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 0.285.dp,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
                       ),
                       Text(
                         'Login to your account',
                         style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 0.315.dp,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(right: 300),
+                        padding: EdgeInsets.only(right: 80.w),
                         child: Text(
                           'Email',
                           style: TextStyle(
                               fontWeight: FontWeight.w700,
                               color: Colors.black,
-                              fontSize: 18),
+                              fontSize: 0.250.dp),
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 1.h,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -148,17 +148,17 @@ class _LoginscreenState extends State<Loginscreen> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(right: 280),
+                        padding: EdgeInsets.only(right: 72.w),
                         child: Text(
                           'Password',
                           style: TextStyle(
                               fontWeight: FontWeight.w700,
-                              fontSize: 15,
+                              fontSize: 0.250.dp,
                               color: Colors.black),
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 1.h,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -171,40 +171,41 @@ class _LoginscreenState extends State<Loginscreen> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 210),
+                        padding: EdgeInsets.only(left: 25.h),
                         child: Text('forgot password ?'),
                       ),
                       CheckboxListTile(
-                        title: Text(
-                          'Remember Me',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Colors.black),
-                        ),
                         value: isChoose,
                         onChanged: (Value) {
                           setState(() {
                             isChoose = Value;
                           });
                         },
+                        title: Text(
+                          'Remember Me',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 0.285.dp,
+                              color: Colors.black),
+                        ),
+
                       ),
                       InkWell(
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>Bottomnavigationbar()));
                         },
                         child: Container(
-                          height: 44,
-                          width: 240,
+                          height: 6.h,
+                          width: 50.w,
                           child: Center(
                               child: Text(
                                 'Login',
                                 style: TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 20),
+                                    fontWeight: FontWeight.w600, fontSize: 0.315.dp,color: Colors.white),
                               )),
                           decoration: BoxDecoration(
-                            color: Colors.orange,
-                            border: Border.all(color: Colors.brown),
+                            color: Colors.pink,
+                            border: Border.all(color: Colors.purple),
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
@@ -213,11 +214,11 @@ class _LoginscreenState extends State<Loginscreen> {
                         children: [
                           SizedBox(
                             child: Padding(
-                              padding: EdgeInsets.only(left: 65),
+                              padding: EdgeInsets.only(left: 12.h,top: 1.h),
                               child: Text(
                                 'Dont have an account ?',
                                 style: TextStyle(
-                                    fontWeight: FontWeight.w400, fontSize: 16),
+                                    fontWeight: FontWeight.w400, fontSize: 0.245.dp),
                               ),
                             ),
                           ),
@@ -227,12 +228,15 @@ class _LoginscreenState extends State<Loginscreen> {
                               Navigator.push(context, MaterialPageRoute(
                                   builder: (context) => Signupscreen()));
                             },
-                            child: Text(
-                              'Sign Up',
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black),
+                            child: Padding(
+                              padding:  EdgeInsets.only(top: 1.h),
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                    fontSize: 0.265.dp,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                              ),
                             ),
                           )
                         ],

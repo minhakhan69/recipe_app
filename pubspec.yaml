@@ -38,6 +38,8 @@ dependencies:
   google_fonts: ^6.2.1
   provider: ^6.1.2
   awesome_bottom_bar: ^1.2.4
+  http: ^1.2.2
+  responsive_sizer: ^3.3.1
 
 dev_dependencies:
   flutter_test:
