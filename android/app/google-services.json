@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1024583763986",
+    "project_id": "cooktoghether-51274",
+    "storage_bucket": "cooktoghether-51274.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024583763986:android:8dbcf11d7bdb452f0e70cb",
+        "android_client_info": {
+          "package_name": "com.example.cook_together"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC29h4iuPqWSlDW3_T500ljJV9M-tQFx_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

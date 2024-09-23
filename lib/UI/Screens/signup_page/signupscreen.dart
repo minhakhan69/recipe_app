@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cook_together/UI/Screens/login_page/loginscreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -10,21 +12,44 @@ class Signupscreen extends StatefulWidget {
 }
 
 class _SignupscreenState extends State<Signupscreen> {
+  SignUpUser(String userEmail, String userPassword) async {
+    User? currentUser = FirebaseAuth.instance.currentUser;
+    try {
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(currentUser!.uid)
+          .set({
+        'userEmail': userEmail,
+        'create At': DateTime.now(),
+        'userId': currentUser!.uid,
+      }).then((value) => {
+                FirebaseAuth.instance.signOut(),
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (ctx) => Loginscreen()))
+              });
+    } on FirebaseAuthException catch (e) {
+      print("error $e");
+    }
+  }
+
   List<String> button = ['false', 'true', 'other'];
   bool? isChoose = false;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding:  EdgeInsets.only(top: 9.h),
+          padding: EdgeInsets.only(top: 9.h),
           child: Center(
             child: Column(
               children: [
                 Image.asset('assets/images/logo.png', height: 15.h),
                 SizedBox(height: 3.h),
                 Padding(
-                  padding:  EdgeInsets.only(bottom: 3.h),
+                  padding: EdgeInsets.only(bottom: 3.h),
                   child: Text(
                     'Continue With',
                     style: TextStyle(
@@ -34,7 +59,7 @@ class _SignupscreenState extends State<Signupscreen> {
                   ),
                 ),
                 Padding(
-                  padding:  EdgeInsets.only(
+                  padding: EdgeInsets.only(
                     left: 3.w,
                   ),
                   child: Row(
@@ -101,7 +126,7 @@ class _SignupscreenState extends State<Signupscreen> {
                   ),
                 ),
                 Padding(
-                  padding:  EdgeInsets.only(top: 0.1.h),
+                  padding: EdgeInsets.only(top: 0.1.h),
                   child: Column(
                     children: [
                       Text(
@@ -137,6 +162,7 @@ class _SignupscreenState extends State<Signupscreen> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextField(
+                          controller: emailController,
                           decoration: InputDecoration(
                             hintText: 'Enter your Email id',
                             border: OutlineInputBorder(
@@ -161,6 +187,7 @@ class _SignupscreenState extends State<Signupscreen> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextField(
+                          controller: passwordController,
                           decoration: InputDecoration(
                             hintText: 'Enter a password',
                             border: OutlineInputBorder(
@@ -182,22 +209,36 @@ class _SignupscreenState extends State<Signupscreen> {
                               fontSize: 0.300.dp,
                               color: Colors.black),
                         ),
-
                       ),
-                      Container(
-                        height: 6.h,
-                        width: 50.w,
-                        child: Center(
-                            child: Text(
-                              'Sign up',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 0.315.dp
-                                  ,color: Colors.white),
-                            )),
-                        decoration: BoxDecoration(
-                          color: Colors.pink,
-                          border: Border.all(color: Colors.purple),
-                          borderRadius: BorderRadius.circular(20),
+                      InkWell(
+                        onTap: () {
+                          FirebaseAuth.instance
+                              .createUserWithEmailAndPassword(
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text.trim())
+                              .then((value) => {
+                                    SignUpUser(
+                                      emailController.text.trim(),
+                                      passwordController.text.trim(),
+                                    ),
+                                  });
+                        },
+                        child: Container(
+                          height: 6.h,
+                          width: 50.w,
+                          child: Center(
+                              child: Text(
+                            'Sign up',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 0.315.dp,
+                                color: Colors.white),
+                          )),
+                          decoration: BoxDecoration(
+                            color: Colors.pink,
+                            border: Border.all(color: Colors.purple),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                         ),
                       ),
                       Row(
@@ -205,26 +246,31 @@ class _SignupscreenState extends State<Signupscreen> {
                           SizedBox(
                             child: Center(
                               child: Padding(
-                                padding: EdgeInsets.only(left: 10.h,top: 1.h),
+                                padding: EdgeInsets.only(left: 10.h, top: 1.h),
                                 child: Text(
                                   'already have an account ?',
-                                  style: TextStyle(fontWeight: FontWeight.w400,fontSize: 0.250.dp),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 0.250.dp),
                                 ),
                               ),
                             ),
                           ),
-
                           InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Loginscreen()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Loginscreen()));
                             },
                             child: Padding(
-                              padding:  EdgeInsets.only(top: 1.h),
+                              padding: EdgeInsets.only(top: 1.h),
                               child: Text(
                                 'Login',
                                 style: TextStyle(
-                                    fontSize: 0.280.dp
-                                    , fontWeight: FontWeight.bold,color: Colors.black),
+                                    fontSize: 0.280.dp,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
                               ),
                             ),
                           )
@@ -238,7 +284,6 @@ class _SignupscreenState extends State<Signupscreen> {
           ),
         ),
       ),
-
     );
   }
 }

@@ -1,10 +1,16 @@
-import 'package:cook_together/UI/Screens/api_testing_tool.dart';
 import 'package:cook_together/UI/Screens/splash_screen/splash_screen.dart';
-import 'package:cook_together/UI/api_testing.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(ResponsiveSizer(
     builder: (context, orientation, screenType) {
       return MyApp();
