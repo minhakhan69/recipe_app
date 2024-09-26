@@ -175,10 +175,17 @@ class _SignupscreenState extends State<Signupscreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      FirebaseAuth.instance.createUserWithEmailAndPassword(
-                        email: emailController.text.trim(),
-                        password: passwordController.text.trim(),
-                      );
+                      FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                              email: emailController.text.trim(),
+                              password: passwordController.text.trim())
+                          .then((value) {
+                        SignUpUser(
+                            emailController.text.trim(),
+                            passwordController.text.trim(),
+                            nameController.text.trim(),
+                            numberController.text.trim());
+                      });
                     },
                     child: Container(
                       height: 6.h,
