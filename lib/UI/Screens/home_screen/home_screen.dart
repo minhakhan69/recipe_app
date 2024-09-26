@@ -551,20 +551,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  suffixIcon: Icon(
-                    Icons.search,
-                    color: Colors.pink,
-                  ),
-                  hintText: 'Whats Cooking in your mind...?',
-                  border:
-                      OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -581,7 +567,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Flexible(
               child: SizedBox(
-                height: 40.h,
+                height: 35.h,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: categories.length,
@@ -638,7 +624,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisCount: 2,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
-                    childAspectRatio: 2 / 2.4,
+                    childAspectRatio: 2 / 3,
                   ),
                   itemBuilder: (ctx, index) {
                     return InkWell(
@@ -659,6 +645,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         .toString())));
                       },
                       child: Container(
+                       
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(color: Colors.pink)),

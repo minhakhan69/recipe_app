@@ -11,6 +11,7 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
+    TextEditingController searchController=TextEditingController();
     return Scaffold(backgroundColor: Colors.pinkAccent.withOpacity(0.06),
       body: Padding(
         padding:  EdgeInsets.only(top: 8.h),
@@ -19,12 +20,15 @@ class _SearchScreenState extends State<SearchScreen> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                controller: searchController,
                 decoration: InputDecoration(suffixIcon: Icon(Icons.search,color: Colors.pink,),
                   hintText: 'search your recipe...',
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                 ),
               ),
             ),
+
+            
           ],
         ),
       ),

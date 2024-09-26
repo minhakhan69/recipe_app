@@ -12,7 +12,8 @@ class Signupscreen extends StatefulWidget {
 }
 
 class _SignupscreenState extends State<Signupscreen> {
-  SignUpUser(String userEmail, String userPassword) async {
+  SignUpUser(String userEmail, String userPassword, String userName,
+      String userPhone) async {
     User? currentUser = FirebaseAuth.instance.currentUser;
     try {
       await FirebaseFirestore.instance
@@ -20,6 +21,9 @@ class _SignupscreenState extends State<Signupscreen> {
           .doc(currentUser!.uid)
           .set({
         'userEmail': userEmail,
+        'userPassword': userPassword,
+        'userName': userName,
+        'userPhone': userPhone,
         'create At': DateTime.now(),
         'userId': currentUser!.uid,
       }).then((value) => {
@@ -36,249 +40,200 @@ class _SignupscreenState extends State<Signupscreen> {
   bool? isChoose = false;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController numberController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(top: 9.h),
+          padding: EdgeInsets.only(top: 5.h),
           child: Center(
             child: Column(
               children: [
-                Image.asset('assets/images/logo.png', height: 15.h),
+                Image.asset('assets/images/logo.png', height: 5.h),
                 SizedBox(height: 3.h),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 3.h),
-                  child: Text(
-                    'Continue With',
-                    style: TextStyle(
-                        fontSize: 0.350.dp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                Column(children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 0.05),
+                    child: Text(
+                      'Create your account',
+                      style: TextStyle(
+                          fontSize: 0.310.dp,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: 3.w,
+                  Padding(
+                    padding: EdgeInsets.only(right: 80.w),
+                    child: Text(
+                      'Email',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black,
+                          fontSize: 0.250.dp),
+                    ),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 0.1.h),
-                        child: Container(
-                          height: 8.h,
-                          width: 45.w,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(color: Colors.black),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image.asset('assets/images/Facebook.png',
-                                    height: 28.h),
-                                Text(
-                                  'Facebook',
-                                  style: TextStyle(
-                                      fontSize: 0.285.dp,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              ],
-                            ),
-                          ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      controller: emailController,
+                      decoration: InputDecoration(
+                        hintText: 'Enter your Email id',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 0.1.h),
-                        child: Container(
-                          height: 8.h,
-                          width: 45.w,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(color: Colors.black),
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Image.asset(
-                                  'assets/images/Google.png',
-                                  height: 25.h,
-                                ),
-                                Text(
-                                  'Google',
-                                  style: TextStyle(
-                                      fontSize: 0.285.dp,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              ],
-                            ),
-                          ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 72.w),
+                    child: Text(
+                      'Password',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 0.250.dp,
+                          color: Colors.black),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      controller: passwordController,
+                      decoration: InputDecoration(
+                        hintText: 'Enter a password',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 81.w),
+                    child: Text(
+                      'Name',
+                      style: TextStyle(
+                          fontSize: 0.250.dp,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      controller: nameController,
+                      decoration: InputDecoration(
+                        hintText: 'Enter your Name',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25),
                         ),
                       ),
-                    ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 0.1.h),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Or',
+                  Padding(
+                    padding: EdgeInsets.only(right: 68.w),
+                    child: Text(
+                      'phone number',
+                      style: TextStyle(
+                          fontSize: 0.250.dp,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      controller: numberController,
+                      decoration: InputDecoration(
+                        hintText: 'Enter your phone number',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                      ),
+                    ),
+                  ),
+                  CheckboxListTile(
+                    value: isChoose,
+                    onChanged: (Value) {
+                      setState(() {
+                        isChoose = Value;
+                      });
+                    },
+                    title: Text(
+                      'Remember Me',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 0.250.dp,
+                          color: Colors.black),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      FirebaseAuth.instance.createUserWithEmailAndPassword(
+                        email: emailController.text.trim(),
+                        password: passwordController.text.trim(),
+                      );
+                    },
+                    child: Container(
+                      height: 6.h,
+                      width: 50.w,
+                      child: Center(
+                          child: Text(
+                        'Sign up',
                         style: TextStyle(
-                            fontSize: 0.285.dp,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 0.315.dp,
+                            color: Colors.white),
+                      )),
+                      decoration: BoxDecoration(
+                        color: Colors.pink,
+                        border: Border.all(color: Colors.purple),
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Create your account',
-                          style: TextStyle(
-                              fontSize: 0.315.dp,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 80.w),
-                        child: Text(
-                          'Email',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: Colors.black,
-                              fontSize: 0.250.dp),
-                        ),
-                      ),
+                    ),
+                  ),
+                  Row(
+                    children: [
                       SizedBox(
-                        height: 1.h,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextField(
-                          controller: emailController,
-                          decoration: InputDecoration(
-                            hintText: 'Enter your Email id',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25),
+                        child: Center(
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 10.h, top: 1.h),
+                            child: Text(
+                              'already have an account ?',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 0.250.dp),
                             ),
                           ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 72.w),
-                        child: Text(
-                          'Password',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 0.250.dp,
-                              color: Colors.black),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextField(
-                          controller: passwordController,
-                          decoration: InputDecoration(
-                            hintText: 'Enter a password',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25)),
-                          ),
-                        ),
-                      ),
-                      CheckboxListTile(
-                        value: isChoose,
-                        onChanged: (Value) {
-                          setState(() {
-                            isChoose = Value;
-                          });
-                        },
-                        title: Text(
-                          'Remember Me',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 0.300.dp,
-                              color: Colors.black),
                         ),
                       ),
                       InkWell(
                         onTap: () {
-                          FirebaseAuth.instance
-                              .createUserWithEmailAndPassword(
-                                  email: emailController.text.trim(),
-                                  password: passwordController.text.trim())
-                              .then((value) => {
-                                    SignUpUser(
-                                      emailController.text.trim(),
-                                      passwordController.text.trim(),
-                                    ),
-                                  });
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Loginscreen()));
                         },
-                        child: Container(
-                          height: 6.h,
-                          width: 50.w,
-                          child: Center(
-                              child: Text(
-                            'Sign up',
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 1.h),
+                          child: Text(
+                            'Login',
                             style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 0.315.dp,
-                                color: Colors.white),
-                          )),
-                          decoration: BoxDecoration(
-                            color: Colors.pink,
-                            border: Border.all(color: Colors.purple),
-                            borderRadius: BorderRadius.circular(20),
+                                fontSize: 0.280.dp,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
                           ),
                         ),
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            child: Center(
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 10.h, top: 1.h),
-                                child: Text(
-                                  'already have an account ?',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 0.250.dp),
-                                ),
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Loginscreen()));
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 1.h),
-                              child: Text(
-                                'Login',
-                                style: TextStyle(
-                                    fontSize: 0.280.dp,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
+                      )
                     ],
                   ),
-                ),
+                ]),
               ],
             ),
           ),

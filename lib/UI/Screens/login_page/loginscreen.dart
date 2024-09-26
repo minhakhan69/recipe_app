@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:cook_together/UI/Screens/home_screen/home_screen.dart';
 import 'package:cook_together/core/constants/const_colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -19,6 +20,8 @@ class Loginscreen extends StatefulWidget {
 class _LoginscreenState extends State<Loginscreen> {
   List<String> button = ['false', 'true', 'other'];
   bool? isChoose = false;
+  TextEditingController EmailController=TextEditingController();
+  TextEditingController PasswordController=TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -139,6 +142,7 @@ class _LoginscreenState extends State<Loginscreen> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextField(
+                          controller: EmailController,
                           decoration: InputDecoration(
                             hintText: 'Enter your Email id',
                             border: OutlineInputBorder(
@@ -163,6 +167,7 @@ class _LoginscreenState extends State<Loginscreen> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextField(
+                          controller: PasswordController,
                           decoration: InputDecoration(
                             hintText: 'Enter a password',
                             border: OutlineInputBorder(
@@ -191,8 +196,23 @@ class _LoginscreenState extends State<Loginscreen> {
 
                       ),
                       InkWell(
-                        onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Bottomnavigationbar()));
+                        onTap: () async {
+                          var LoginEmail = EmailController.text.trim();
+                          var LoginPassword =PasswordController.text.trim();
+
+                          try {
+                            final User? FirebaseUser = (await FirebaseAuth.instance
+                                .signInWithEmailAndPassword(
+                                email: LoginEmail, password: LoginPassword))
+                                .user;
+                            if (FirebaseUser != null) {
+                            Navigator.push(context, MaterialPageRoute(builder:(ctx)=>Bottomnavigationbar()));
+                            } else {
+                              print('check email and password');
+                            }
+                          } on FirebaseAuthException catch (e) {
+                            print("error $e");
+                          }
                         },
                         child: Container(
                           height: 6.h,
