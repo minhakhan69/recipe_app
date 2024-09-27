@@ -567,7 +567,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Flexible(
               child: SizedBox(
-                height: 35.h,
+                height: 28.h,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: categories.length,
@@ -590,6 +590,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Image.asset(
                                 categories[index]['image'],
                                 height: 20.h,
+                                fit: BoxFit.cover,
                               ),
                             ),
                             SizedBox(
@@ -622,9 +623,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemCount: popularRecipes.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: 2 / 3,
+                    mainAxisSpacing: 8,
+                    crossAxisSpacing: 8,
+                    childAspectRatio: 2 / 2.5,
                   ),
                   itemBuilder: (ctx, index) {
                     return InkWell(
@@ -645,7 +646,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                         .toString())));
                       },
                       child: Container(
-                       
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(color: Colors.pink)),
@@ -653,8 +653,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Image.asset(
                               popularRecipes[index]['image'],
-                              height: 17.h,
+                              height: 15.h,
                               width: double.infinity,
+                              fit: BoxFit.cover
                             ),
                             Text(
                               popularRecipes[index]['name'],

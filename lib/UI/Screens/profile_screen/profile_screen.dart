@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -8,6 +9,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  User? Fireb
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,4 +132,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
+  
+  
+  
+  Widget getData(){
+    return StreamBuilder(stream: FirebaseFirestore.instance.collection('users').where('userId',isEqualTo: ), builder: builder)
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
