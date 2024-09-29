@@ -1,7 +1,10 @@
 import 'package:cook_together/UI/Screens/all_categories/all_categories.dart';
 import 'package:cook_together/UI/Screens/recipe_detailscreen/Recipe_details.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import '../../providers/favrt_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,15 +21,17 @@ class _HomeScreenState extends State<HomeScreen> {
       'recipes': [
         {
           'name': 'Afghani Pulao',
-          'image':'assets/images/afghani rice.png',
+          'image': 'assets/images/afghani rice.png',
           'ingredients': ['Rice', 'Lamb', 'Carrots', 'Raisins', 'Spices'],
-          'instructions': 'Cook rice with lamb and spices, then mix with fried carrots and raisins.'
+          'instructions':
+              'Cook rice with lamb and spices, then mix with fried carrots and raisins.'
         },
         {
           'name': 'Afghani Mantu',
-          'image':'assets/images/dumpling.png',
+          'image': 'assets/images/dumpling.png',
           'ingredients': ['Flour', 'Ground beef', 'Onions', 'Garlic', 'Yogurt'],
-          'instructions': 'Fill dough with beef mixture, steam, and top with garlic yogurt sauce.'
+          'instructions':
+              'Fill dough with beef mixture, steam, and top with garlic yogurt sauce.'
         },
         // Add more Afghani recipes
       ],
@@ -36,17 +41,25 @@ class _HomeScreenState extends State<HomeScreen> {
       'name': 'Chinese recipe',
       'recipes': [
         {
-
           'name': 'Kung Pao Chicken',
-          'image':'assets/images/kung pao chicken.png',
-          'ingredients': ['Chicken', 'Peanuts', 'Chili peppers', 'Garlic', 'Ginger', 'Soy sauce'],
-          'instructions': 'Stir-fry chicken with garlic, ginger, peanuts, and chili peppers in soy sauce.'
+          'image': 'assets/images/kung pao chicken.png',
+          'ingredients': [
+            'Chicken',
+            'Peanuts',
+            'Chili peppers',
+            'Garlic',
+            'Ginger',
+            'Soy sauce'
+          ],
+          'instructions':
+              'Stir-fry chicken with garlic, ginger, peanuts, and chili peppers in soy sauce.'
         },
         {
           'name': 'Spring Rolls',
-          'image':'assets/images/spring rolls.png',
+          'image': 'assets/images/spring rolls.png',
           'ingredients': ['Cabbage', 'Carrots', 'Rice paper', 'Soy sauce'],
-          'instructions': 'Fill rice paper with veggies, roll up, and fry until golden.'
+          'instructions':
+              'Fill rice paper with veggies, roll up, and fry until golden.'
         },
         // Add more Chinese recipes
       ],
@@ -57,15 +70,29 @@ class _HomeScreenState extends State<HomeScreen> {
       'recipes': [
         {
           'name': 'Pasta Carbonara',
-          'image':'assets/images/pasta carbonara.png',
-          'ingredients': ['Pasta', 'Eggs', 'Pancetta', 'Parmesan', 'Black pepper'],
-          'instructions': 'Cook pasta, mix with eggs, pancetta, and Parmesan, then season with pepper.'
+          'image': 'assets/images/pasta carbonara.png',
+          'ingredients': [
+            'Pasta',
+            'Eggs',
+            'Pancetta',
+            'Parmesan',
+            'Black pepper'
+          ],
+          'instructions':
+              'Cook pasta, mix with eggs, pancetta, and Parmesan, then season with pepper.'
         },
         {
           'name': 'Tiramisu',
-          'image':'assets/images/tiramisu-cake.png',
-          'ingredients': ['Ladyfingers', 'Mascarpone', 'Coffee', 'Cocoa powder', 'Sugar'],
-          'instructions': 'Layer ladyfingers soaked in coffee with mascarpone mixture, top with cocoa powder.'
+          'image': 'assets/images/tiramisu-cake.png',
+          'ingredients': [
+            'Ladyfingers',
+            'Mascarpone',
+            'Coffee',
+            'Cocoa powder',
+            'Sugar'
+          ],
+          'instructions':
+              'Layer ladyfingers soaked in coffee with mascarpone mixture, top with cocoa powder.'
         },
         // Add more Italian recipes
       ],
@@ -76,15 +103,23 @@ class _HomeScreenState extends State<HomeScreen> {
       'recipes': [
         {
           'name': 'Butter Chicken',
-          'image':'assets/images/butter chicken.png',
-          'ingredients': ['Chicken', 'Tomato puree', 'Butter', 'Cream', 'Spices'],
-          'instructions': 'Cook chicken in tomato puree with butter and cream, then season with spices.'
+          'image': 'assets/images/butter chicken.png',
+          'ingredients': [
+            'Chicken',
+            'Tomato puree',
+            'Butter',
+            'Cream',
+            'Spices'
+          ],
+          'instructions':
+              'Cook chicken in tomato puree with butter and cream, then season with spices.'
         },
         {
           'name': 'Gulab Jamun',
-          'image':'assets/images/gulab jamaun.png',
+          'image': 'assets/images/gulab jamaun.png',
           'ingredients': ['Milk powder', 'Flour', 'Sugar', 'Ghee', 'Cardamom'],
-          'instructions': 'Fry dough balls made from milk powder, then soak in sugar syrup flavored with cardamom.'
+          'instructions':
+              'Fry dough balls made from milk powder, then soak in sugar syrup flavored with cardamom.'
         },
         // Add more Indian recipes
       ],
@@ -95,15 +130,23 @@ class _HomeScreenState extends State<HomeScreen> {
       'recipes': [
         {
           'name': 'Biryani',
-          'image':'assets/images/biryani chicken.png',
+          'image': 'assets/images/biryani chicken.png',
           'ingredients': ['Rice', 'Chicken', 'Yogurt', 'Spices', 'Onions'],
-          'instructions': 'Layer cooked rice with spiced chicken and yogurt, then steam until flavors meld.'
+          'instructions':
+              'Layer cooked rice with spiced chicken and yogurt, then steam until flavors meld.'
         },
         {
           'name': 'Chapli Kebab',
-          'image':'assets/images/chapli kabab.png',
-          'ingredients': ['Minced meat', 'Spices', 'Tomatoes', 'Onions', 'Coriander'],
-          'instructions': 'Mix minced meat with spices and tomatoes, shape into patties, and fry.'
+          'image': 'assets/images/chapli kabab.png',
+          'ingredients': [
+            'Minced meat',
+            'Spices',
+            'Tomatoes',
+            'Onions',
+            'Coriander'
+          ],
+          'instructions':
+              'Mix minced meat with spices and tomatoes, shape into patties, and fry.'
         },
         // Add more Pakistani recipes
       ],
@@ -556,11 +599,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(
                     'Categories',
-                    style: TextStyle(fontSize: 0.285.dp, fontWeight: FontWeight.w700),
+                    style: TextStyle(
+                        fontSize: 0.285.dp, fontWeight: FontWeight.w700),
                   ),
                   Text(
                     'see more',
-                    style: TextStyle(fontSize: 0.200.dp, fontWeight: FontWeight.w300),
+                    style: TextStyle(
+                        fontSize: 0.200.dp, fontWeight: FontWeight.w300),
                   )
                 ],
               ),
@@ -573,7 +618,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemCount: categories.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 1.h),
+                      padding: EdgeInsets.symmetric(horizontal: 1.h),
                       child: Container(
                         decoration: BoxDecoration(
                             // color: Colors.pink.withOpacity(0.5),
@@ -582,10 +627,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Column(
                           children: [
                             InkWell(
-                              onTap:(){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => AllCategories(
-                                    name:categories[index]['name'].toString() ,
-                                    specificRecipes: categories[index]['recipes']),));
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => AllCategories(
+                                          name: categories[index]['name']
+                                              .toString(),
+                                          specificRecipes: categories[index]
+                                              ['recipes']),
+                                    ));
                               },
                               child: Image.asset(
                                 categories[index]['image'],
@@ -615,83 +666,108 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(right: 66.w),
-              child: Text('Trending',style: TextStyle(fontSize: 0.315.dp,fontWeight: FontWeight.w700),),
+              padding: EdgeInsets.only(right: 66.w),
+              child: Text(
+                'Trending',
+                style:
+                    TextStyle(fontSize: 0.315.dp, fontWeight: FontWeight.w700),
+              ),
             ),
             Expanded(
               child: GridView.builder(
-                  itemCount: popularRecipes.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 8,
-                    crossAxisSpacing: 8,
-                    childAspectRatio: 2 / 2.5,
-                  ),
-                  itemBuilder: (ctx, index) {
-                    return InkWell(
-                      onTap: () {
-                        Navigator.push(
+                itemCount: popularRecipes.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 8,
+                  childAspectRatio: 2 / 2.5,
+                ),
+                itemBuilder: (ctx, index) {
+                  final recipe = popularRecipes[index];
+
+                  return Consumer<FavoriteProvider>(
+                    builder: (context, favoriteProvider, child) {
+                      final isFavorite = favoriteProvider.isFavorite(recipe);
+
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => RecipeDetails(
-                                    name:
-                                        popularRecipes[index]['name'].toString(),
-                                    image:
-                                        popularRecipes[index]['image'].toString(),
-                                    ingredients: popularRecipes[index]
-                                            ['ingredients']
-                                        .toString(),
-                                    instructions: popularRecipes[index]
-                                            ['instructions']
-                                        .toString())));
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.pink)),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              popularRecipes[index]['image'],
-                              height: 15.h,
-                              width: double.infinity,
-                              fit: BoxFit.cover
-                            ),
-                            Text(
-                              popularRecipes[index]['name'],
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: 0.200.dp),
-                            ),
-                            Text(
-                              popularRecipes[index]['time'],
-                              style: TextStyle(fontWeight: FontWeight.w500),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Icon(Icons.group),
-                                      Text(
-                                        popularRecipes[index]['people'],
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  ),
-                                  Icon(Icons.favorite_border_outlined),
-                                ],
+                              builder: (context) => RecipeDetails(
+                                name: recipe['name'].toString(),
+                                image: recipe['image'].toString(),
+                                ingredients: recipe['ingredients'].toString(),
+                                instructions: recipe['instructions'].toString(),
                               ),
                             ),
-                          ],
+                          );
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Colors.pink),
+                          ),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                recipe['image'],
+                                height: 15.h,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
+                              Text(
+                                recipe['name'],
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w800,
+                                  fontStyle: FontStyle.italic,
+                                  fontSize: 0.200.dp,
+                                ),
+                              ),
+                              Text(
+                                recipe['time'],
+                                style: TextStyle(fontWeight: FontWeight.w500),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(Icons.group),
+                                        Text(
+                                          recipe['people'],
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      ],
+                                    ),
+                                    IconButton(
+                                      icon: Icon(
+                                        isFavorite
+                                            ? Icons.favorite
+                                            : Icons.favorite_border_outlined,
+                                        color: isFavorite
+                                            ? Colors.pink
+                                            : Colors.black,
+                                      ),
+                                      onPressed: () {
+                                        favoriteProvider.toggleFavorite(recipe);
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  }),
+                      );
+                    },
+                  );
+                },
+              ),
             ),
           ],
         ),

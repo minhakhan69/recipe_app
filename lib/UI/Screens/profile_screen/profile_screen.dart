@@ -9,7 +9,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  User? Fireb
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,9 +134,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   
   
   
-  Widget getData(){
-    return StreamBuilder(stream: FirebaseFirestore.instance.collection('users').where('userId',isEqualTo: ), builder: builder)
-  }
+
   
   
   
