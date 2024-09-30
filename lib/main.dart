@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'UI/Screens/profile_screen/profile_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {

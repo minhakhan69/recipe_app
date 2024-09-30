@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -28,7 +29,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Container(
             height: 200,
             width: 500,
-            decoration: BoxDecoration(color: Colors.pinkAccent.withOpacity(0.09),
+            decoration: BoxDecoration(
+                color: Colors.pinkAccent.withOpacity(0.09),
                 border: Border.all(color: Colors.pink)),
             child: Row(
               children: [
@@ -58,19 +60,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(onTap: () {
-              print('profile tapped');
-            },
-              child:
-              Row(
+            child: GestureDetector(
+              onTap: () {
+                print('profile tapped');
+              },
+              child: Row(
                 children: [
                   Icon(Icons.person),
-
-                  Text('Profile',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),),
+                  Text(
+                    'Profile',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                  ),
                 ],
-
-            ),
-
+              ),
             ),
           ),
           Padding(
@@ -78,7 +80,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               children: [
                 Icon(Icons.favorite_border),
-                Text('Favourite',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 18),),
+                Text(
+                  'Favourite',
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+                ),
               ],
             ),
           ),
@@ -87,7 +92,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               children: [
                 Icon(Icons.lock),
-                Text('Privacy Policy',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400),),
+                Text(
+                  'Privacy Policy',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                ),
               ],
             ),
           ),
@@ -96,7 +104,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               children: [
                 Icon(Icons.settings),
-                Text('Settings',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400),),
+                Text(
+                  'Settings',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                ),
               ],
             ),
           ),
@@ -105,7 +116,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               children: [
                 Icon(Icons.help),
-                Text('Help',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16),),
+                Text(
+                  'Help',
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                ),
               ],
             ),
           ),
@@ -114,7 +128,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               children: [
                 Icon(Icons.language),
-                Text('Languages',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400),),
+                Text(
+                  'Languages',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                ),
               ],
             ),
           ),
@@ -123,7 +140,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               children: [
                 Icon(Icons.logout),
-                Text('Logout',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16),),
+                Text(
+                  'Logout',
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                ),
               ],
             ),
           ),
@@ -131,17 +151,4 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }
