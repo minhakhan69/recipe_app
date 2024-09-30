@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.pinkAccent.withOpacity(0.6),
+       backgroundColor:Colors.white ,
         body: Padding(
           padding: EdgeInsets.only(
             left: 5.w,
@@ -30,12 +30,12 @@ class SplashScreen extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 0.445.dp,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                        color: Colors.brown,
                        ),
                   ),
                 ),
               ),
-              Image.asset('assets/images/logo.png', height: 25.h),
+              Image.asset('assets/images/dp.png', height: 30.h),
               SizedBox(
                 height: 1.h,
               ),
@@ -47,7 +47,7 @@ class SplashScreen extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 0.445.dp,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                        color: Colors.brown,
                         ),
                   ),
                 ),
@@ -60,7 +60,7 @@ class SplashScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 0.435.dp,
                       fontWeight: FontWeight.w600,
-                      color: Colors.white,
+                      color: Colors.brown,
 
                     ),
                   ),
@@ -76,22 +76,22 @@ class SplashScreen extends StatelessWidget {
                     );
                   },
                   child: Container(
-                    height: 10.h,
-                    width: 90.w,
+                    height: 8.h,
+                    width: 75.w,
                     child: Center(
                       child: Text(
-                        'get lovest recipies',
+                        ' lovest recipies',
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.brown,
                             fontSize: 0.360.dp,
                             fontStyle: FontStyle.italic,
                             fontWeight: FontWeight.w500),
                       ),
                     ),
                     decoration: BoxDecoration(
-                        color: Colors.pink,
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(34)),
+                        color: Colors.yellow,
+                        border: Border.all(color: Colors.brown),
+                        borderRadius: BorderRadius.circular(24)),
                   ),
                 ),
               ),
