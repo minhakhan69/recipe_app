@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cook_together/UI/Screens/all_categories/all_categories.dart';
 import 'package:cook_together/UI/Screens/recipe_detailscreen/Recipe_details.dart';
 import 'package:flutter/material.dart';
@@ -651,7 +652,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 categories[index]['name'],
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w900,
                                     fontStyle: FontStyle.italic),
@@ -676,7 +677,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Expanded(
               child: GridView.builder(
                 itemCount: popularRecipes.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 8,
@@ -739,7 +740,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         Icon(Icons.group),
                                         Text(
                                           recipe['people'],
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontWeight: FontWeight.w500),
                                         ),
                                       ],
@@ -772,6 +773,30 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget getHomeScreenData() {
+    return Expanded(
+      child: StreamBuilder(
+          stream: FirebaseFirestore.instance.collection('recipe').snapshots(),
+          builder: (BuildContext ctx, AsyncSnapshot<QuerySnapshot> snapshot) {
+            return ListView.builder(
+              itemCount: snapshot.data!.docs.length,
+              itemBuilder: (context, index) {
+                var data = snapshot.data!.docs[index];
+                return Container(
+                  height: 200,
+                  width: double.infinity,
+                  child: Column(
+                    children: [
+                      Text(data['name']),
+                    ],
+                  ),
+                );
+              },
+            );
+          }),
     );
   }
 }
