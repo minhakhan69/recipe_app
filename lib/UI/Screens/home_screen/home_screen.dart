@@ -584,7 +584,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(
                         fontSize: 0.280.dp,
                         fontWeight: FontWeight.w700,
-                        color: Colors.pink),
+                        color: Colors.brown),
                   ),
                   Image.asset(
                     'assets/images/logo.png',
@@ -624,7 +624,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                             // color: Colors.pink.withOpacity(0.5),
                             borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.pink)),
+                            border: Border.all(color: Colors.brown)),
                         child: Column(
                           children: [
                             InkWell(
@@ -707,7 +707,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.pink),
+                            border: Border.all(color: Colors.brown),
                           ),
                           child: Column(
                             children: [
@@ -751,8 +751,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             ? Icons.favorite
                                             : Icons.favorite_border_outlined,
                                         color: isFavorite
-                                            ? Colors.pink
-                                            : Colors.black,
+                                            ? Colors.yellow
+                                            : Colors.brown,
                                       ),
                                       onPressed: () {
                                         favoriteProvider.toggleFavorite(recipe);
@@ -770,6 +770,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
+            // getHomeScreenData(),
           ],
         ),
       ),
@@ -781,20 +782,110 @@ class _HomeScreenState extends State<HomeScreen> {
       child: StreamBuilder(
           stream: FirebaseFirestore.instance.collection('recipe').snapshots(),
           builder: (BuildContext ctx, AsyncSnapshot<QuerySnapshot> snapshot) {
-            return ListView.builder(
-              itemCount: snapshot.data!.docs.length,
-              itemBuilder: (context, index) {
-                var data = snapshot.data!.docs[index];
-                return Container(
-                  height: 200,
-                  width: double.infinity,
-                  child: Column(
-                    children: [
-                      Text(data['name']),
-                    ],
-                  ),
-                );
-              },
+            return Expanded(
+              child: GridView.builder(
+                itemCount: snapshot.data!.docs.length,
+                gridDelegate:
+                const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 8,
+                  childAspectRatio: 2 / 2.5,
+                ),
+                itemBuilder: (ctx, index) {
+                  var data = snapshot.data!.docs[index];
+
+                  final recipe = popularRecipes[index];
+
+                  return Consumer<FavoriteProvider>(
+                    builder: (context, favoriteProvider, child) {
+                      final isFavorite =
+                      favoriteProvider.isFavorite(recipe);
+
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RecipeDetails(
+                                name: data['name'].toString(),
+                                image: recipe['image'].toString(),
+                                ingredients: data['ingredients'].toString(),
+                                instructions:
+                                data['instructions'].toString(),
+                              ),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Colors.brown),
+                          ),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                recipe['image'],
+                                height: 15.h,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
+                              Text(
+                                snapshot.data!.docs[index]['name'],
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w800,
+                                  fontStyle: FontStyle.italic,
+                                  fontSize: 0.200.dp,
+                                ),
+                              ),
+                              Text(
+                                snapshot.data!.docs[index]['time'],
+                                style:
+                                TextStyle(fontWeight: FontWeight.w500),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(Icons.group),
+                                        Text(
+                                          snapshot.data!.docs[index]
+                                          ['person'],
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      ],
+                                    ),
+                                    IconButton(
+                                      icon: Icon(
+                                        isFavorite
+                                            ? Icons.favorite
+                                            : Icons
+                                            .favorite_border_outlined,
+                                        color: isFavorite
+                                            ? Colors.yellow
+                                            : Colors.brown,
+                                      ),
+                                      onPressed: () {
+                                        favoriteProvider
+                                            .toggleFavorite(recipe);
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
             );
           }),
     );
