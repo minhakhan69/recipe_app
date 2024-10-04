@@ -785,8 +785,7 @@ class _HomeScreenState extends State<HomeScreen> {
             return Expanded(
               child: GridView.builder(
                 itemCount: snapshot.data!.docs.length,
-                gridDelegate:
-                const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 8,
@@ -799,8 +798,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   return Consumer<FavoriteProvider>(
                     builder: (context, favoriteProvider, child) {
-                      final isFavorite =
-                      favoriteProvider.isFavorite(recipe);
+                      final isFavorite = favoriteProvider.isFavorite(recipe);
 
                       return InkWell(
                         onTap: () {
@@ -811,8 +809,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 name: data['name'].toString(),
                                 image: recipe['image'].toString(),
                                 ingredients: data['ingredients'].toString(),
-                                instructions:
-                                data['instructions'].toString(),
+                                instructions: data['instructions'].toString(),
                               ),
                             ),
                           );
@@ -840,21 +837,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               Text(
                                 snapshot.data!.docs[index]['time'],
-                                style:
-                                TextStyle(fontWeight: FontWeight.w500),
+                                style: TextStyle(fontWeight: FontWeight.w500),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     Row(
                                       children: [
                                         Icon(Icons.group),
                                         Text(
-                                          snapshot.data!.docs[index]
-                                          ['person'],
+                                          snapshot.data!.docs[index]['person'],
                                           style: const TextStyle(
                                               fontWeight: FontWeight.w500),
                                         ),
@@ -864,15 +859,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                       icon: Icon(
                                         isFavorite
                                             ? Icons.favorite
-                                            : Icons
-                                            .favorite_border_outlined,
+                                            : Icons.favorite_border_outlined,
                                         color: isFavorite
                                             ? Colors.yellow
                                             : Colors.brown,
                                       ),
                                       onPressed: () {
-                                        favoriteProvider
-                                            .toggleFavorite(recipe);
+                                        favoriteProvider.toggleFavorite(recipe);
                                       },
                                     ),
                                   ],
