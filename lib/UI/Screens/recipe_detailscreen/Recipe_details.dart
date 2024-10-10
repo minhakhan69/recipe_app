@@ -9,16 +9,15 @@ class RecipeDetails extends StatelessWidget {
 
   RecipeDetails(
       {super.key,
-      required this.name,
-      required this.image,
-      required this.ingredients,
-      required this.instructions});
+        required this.name,
+        required this.image,
+        required this.ingredients,
+        required this.instructions});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -30,13 +29,13 @@ class RecipeDetails extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 0.300.dp,
                     fontStyle: FontStyle.italic,
-                    color: Colors.brown.shade700,
+                    color: Colors.pink,
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Image.asset(
+                child: Image.network(
                   image,
                   height: 30.h,
                 ),
@@ -48,8 +47,7 @@ class RecipeDetails extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 0.250.dp,
-                      color: Colors.brown,
-                      backgroundColor: Colors.yellow),
+                      color: Colors.pink),
                 ),
               ),
               Padding(
@@ -66,8 +64,7 @@ class RecipeDetails extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 0.250.dp,
-                      color: Colors.brown,
-                      backgroundColor: Colors.yellow),
+                      color: Colors.pink),
                 ),
               ),
               Padding(
@@ -75,9 +72,7 @@ class RecipeDetails extends StatelessWidget {
                 child: Text(
                   instructions,
                   textAlign: TextAlign.start,
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
               ),
             ],

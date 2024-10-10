@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cook_together/UI/Screens/all_categories/all_categories.dart';
+import 'package:cook_together/UI/Screens/create_screen/create_screen.dart';
 import 'package:cook_together/UI/Screens/recipe_detailscreen/Recipe_details.dart';
+import 'package:cook_together/core/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -25,14 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
           'image': 'assets/images/afghani rice.png',
           'ingredients': ['Rice', 'Lamb', 'Carrots', 'Raisins', 'Spices'],
           'instructions':
-              'Cook rice with lamb and spices, then mix with fried carrots and raisins.'
+          'Cook rice with lamb and spices, then mix with fried carrots and raisins.'
         },
         {
           'name': 'Afghani Mantu',
           'image': 'assets/images/dumpling.png',
           'ingredients': ['Flour', 'Ground beef', 'Onions', 'Garlic', 'Yogurt'],
           'instructions':
-              'Fill dough with beef mixture, steam, and top with garlic yogurt sauce.'
+          'Fill dough with beef mixture, steam, and top with garlic yogurt sauce.'
         },
         // Add more Afghani recipes
       ],
@@ -53,14 +55,14 @@ class _HomeScreenState extends State<HomeScreen> {
             'Soy sauce'
           ],
           'instructions':
-              'Stir-fry chicken with garlic, ginger, peanuts, and chili peppers in soy sauce.'
+          'Stir-fry chicken with garlic, ginger, peanuts, and chili peppers in soy sauce.'
         },
         {
           'name': 'Spring Rolls',
           'image': 'assets/images/spring rolls.png',
           'ingredients': ['Cabbage', 'Carrots', 'Rice paper', 'Soy sauce'],
           'instructions':
-              'Fill rice paper with veggies, roll up, and fry until golden.'
+          'Fill rice paper with veggies, roll up, and fry until golden.'
         },
         // Add more Chinese recipes
       ],
@@ -80,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
             'Black pepper'
           ],
           'instructions':
-              'Cook pasta, mix with eggs, pancetta, and Parmesan, then season with pepper.'
+          'Cook pasta, mix with eggs, pancetta, and Parmesan, then season with pepper.'
         },
         {
           'name': 'Tiramisu',
@@ -93,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
             'Sugar'
           ],
           'instructions':
-              'Layer ladyfingers soaked in coffee with mascarpone mixture, top with cocoa powder.'
+          'Layer ladyfingers soaked in coffee with mascarpone mixture, top with cocoa powder.'
         },
         // Add more Italian recipes
       ],
@@ -113,14 +115,14 @@ class _HomeScreenState extends State<HomeScreen> {
             'Spices'
           ],
           'instructions':
-              'Cook chicken in tomato puree with butter and cream, then season with spices.'
+          'Cook chicken in tomato puree with butter and cream, then season with spices.'
         },
         {
           'name': 'Gulab Jamun',
           'image': 'assets/images/gulab jamaun.png',
           'ingredients': ['Milk powder', 'Flour', 'Sugar', 'Ghee', 'Cardamom'],
           'instructions':
-              'Fry dough balls made from milk powder, then soak in sugar syrup flavored with cardamom.'
+          'Fry dough balls made from milk powder, then soak in sugar syrup flavored with cardamom.'
         },
         // Add more Indian recipes
       ],
@@ -134,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
           'image': 'assets/images/biryani chicken.png',
           'ingredients': ['Rice', 'Chicken', 'Yogurt', 'Spices', 'Onions'],
           'instructions':
-              'Layer cooked rice with spiced chicken and yogurt, then steam until flavors meld.'
+          'Layer cooked rice with spiced chicken and yogurt, then steam until flavors meld.'
         },
         {
           'name': 'Chapli Kebab',
@@ -147,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
             'Coriander'
           ],
           'instructions':
-              'Mix minced meat with spices and tomatoes, shape into patties, and fry.'
+          'Mix minced meat with spices and tomatoes, shape into patties, and fry.'
         },
         // Add more Pakistani recipes
       ],
@@ -172,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Fresh coriander and mint leaves',
       ],
       'instructions':
-          'Marinate chicken with yogurt, biryani masala, salt, and ginger garlic paste. Fry onions until golden brown, then add tomatoes and cook until soft. Add marinated chicken and cook until done. Layer cooked rice over the chicken mixture, garnish with coriander and mint leaves, and steam on low heat for 15-20 minutes. Serve hot.'
+      'Marinate chicken with yogurt, biryani masala, salt, and ginger garlic paste. Fry onions until golden brown, then add tomatoes and cook until soft. Add marinated chicken and cook until done. Layer cooked rice over the chicken mixture, garnish with coriander and mint leaves, and steam on low heat for 15-20 minutes. Serve hot.'
     },
     {
       'image': 'assets/images/gulab jamaun.png',
@@ -191,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Oil for frying',
       ],
       'instructions':
-          'Mix milk powder, flour, baking soda, ghee, and milk to form a dough. Shape into small balls. Fry in hot oil until golden brown. Prepare sugar syrup by boiling sugar, water, and cardamom. Soak fried balls in warm sugar syrup for 30 minutes before serving.'
+      'Mix milk powder, flour, baking soda, ghee, and milk to form a dough. Shape into small balls. Fry in hot oil until golden brown. Prepare sugar syrup by boiling sugar, water, and cardamom. Soak fried balls in warm sugar syrup for 30 minutes before serving.'
     },
     {
       'image': 'assets/images/kheer.png',
@@ -207,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Saffron strands (optional)',
       ],
       'instructions':
-          'Rinse and soak rice for 30 minutes. Boil milk in a heavy-bottomed pan, add soaked rice, and cook on low heat until the rice is soft and the milk thickens. Stir in sugar, cardamom, and nuts. Cook for another 10-15 minutes. Garnish with saffron and more nuts before serving.'
+      'Rinse and soak rice for 30 minutes. Boil milk in a heavy-bottomed pan, add soaked rice, and cook on low heat until the rice is soft and the milk thickens. Stir in sugar, cardamom, and nuts. Cook for another 10-15 minutes. Garnish with saffron and more nuts before serving.'
     },
     {
       'image': 'assets/images/burger.png',
@@ -227,7 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Oil for frying',
       ],
       'instructions':
-          'Mix ground meat with chopped onion, egg, salt, and pepper. Shape into patties and fry in hot oil until cooked through. Assemble burgers by placing lettuce, tomato, patties, and cheese inside buns. Add ketchup and mayonnaise to taste.'
+      'Mix ground meat with chopped onion, egg, salt, and pepper. Shape into patties and fry in hot oil until cooked through. Assemble burgers by placing lettuce, tomato, patties, and cheese inside buns. Add ketchup and mayonnaise to taste.'
     },
     {
       'image': 'assets/images/chowmein.png',
@@ -248,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Oil for frying',
       ],
       'instructions':
-          'Boil noodles according to package instructions and set aside. Stir-fry chicken slices in hot oil until browned. Add onions, bell pepper, and carrot, and stir-fry until tender. Add cooked noodles, soy sauce, oyster sauce, vinegar, and chili sauce. Toss well to coat noodles evenly. Serve hot.'
+      'Boil noodles according to package instructions and set aside. Stir-fry chicken slices in hot oil until browned. Add onions, bell pepper, and carrot, and stir-fry until tender. Add cooked noodles, soy sauce, oyster sauce, vinegar, and chili sauce. Toss well to coat noodles evenly. Serve hot.'
     },
     {
       'image': 'assets/images/potato meat.png',
@@ -269,7 +271,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Fresh coriander for garnish',
       ],
       'instructions':
-          'Heat oil in a pot, fry onions until golden, add ginger garlic paste, tomatoes, and spices. Cook until oil separates. Add mutton and cook until browned. Add water and simmer until meat is tender. Add potatoes and cook until done. Garnish with fresh coriander and serve hot.'
+      'Heat oil in a pot, fry onions until golden, add ginger garlic paste, tomatoes, and spices. Cook until oil separates. Add mutton and cook until browned. Add water and simmer until meat is tender. Add potatoes and cook until done. Garnish with fresh coriander and serve hot.'
     },
     {
       'image': 'assets/images/cake.png',
@@ -287,7 +289,7 @@ class _HomeScreenState extends State<HomeScreen> {
         '1 tsp vanilla extract',
       ],
       'instructions':
-          'Preheat oven to 350°F (175°C). Melt butter, stir in sugar, eggs, and vanilla. Add cocoa, flour, salt, and baking powder. Spread batter in a greased baking pan. Bake for 20-25 minutes or until the edges start to pull away from the pan. Cool before cutting into squares.'
+      'Preheat oven to 350°F (175°C). Melt butter, stir in sugar, eggs, and vanilla. Add cocoa, flour, salt, and baking powder. Spread batter in a greased baking pan. Bake for 20-25 minutes or until the edges start to pull away from the pan. Cool before cutting into squares.'
     },
     {
       'image': 'assets/images/chapli kabab.png',
@@ -307,7 +309,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Oil for frying',
       ],
       'instructions':
-          'Mix ground beef with onion, green chilies, tomato, egg, cumin seeds, coriander seeds, red chili powder, and salt. Shape the mixture into flat patties. Fry in hot oil until browned and cooked through. Serve hot with naan or as a side dish.'
+      'Mix ground beef with onion, green chilies, tomato, egg, cumin seeds, coriander seeds, red chili powder, and salt. Shape the mixture into flat patties. Fry in hot oil until browned and cooked through. Serve hot with naan or as a side dish.'
     },
     {
       'image': 'assets/images/chicken microni.png',
@@ -327,7 +329,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Oil for frying',
       ],
       'instructions':
-          'Cook macaroni according to package instructions. In a pan, sauté chicken with onions until cooked. Add bell pepper, carrot, and tomato sauce. Season with Italian seasoning, salt, and pepper. Mix in cooked macaroni, top with cheese if desired, and bake in the oven until cheese is melted.'
+      'Cook macaroni according to package instructions. In a pan, sauté chicken with onions until cooked. Add bell pepper, carrot, and tomato sauce. Season with Italian seasoning, salt, and pepper. Mix in cooked macaroni, top with cheese if desired, and bake in the oven until cheese is melted.'
     },
     {
       'image': 'assets/images/gajra halwa.png',
@@ -344,7 +346,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Raisins (optional)',
       ],
       'instructions':
-          'Heat ghee in a pan, add grated carrots and cook until soft. Add milk and cardamom, and cook on low heat until milk reduces and thickens. Stir in sugar and cook until dissolved. Garnish with chopped nuts and raisins before serving.'
+      'Heat ghee in a pan, add grated carrots and cook until soft. Add milk and cardamom, and cook on low heat until milk reduces and thickens. Stir in sugar and cook until dissolved. Garnish with chopped nuts and raisins before serving.'
     },
     {
       'image': 'assets/images/haleem.png',
@@ -365,7 +367,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Fried onions for garnish',
       ],
       'instructions':
-          'Cook meat with ginger garlic paste, turmeric, red chili powder, and salt until tender. Cook lentils and wheat grains separately until soft. Blend meat and lentils into a smooth paste. Simmer the mixture on low heat, stirring occasionally. Garnish with garam masala and fried onions before serving.'
+      'Cook meat with ginger garlic paste, turmeric, red chili powder, and salt until tender. Cook lentils and wheat grains separately until soft. Blend meat and lentils into a smooth paste. Simmer the mixture on low heat, stirring occasionally. Garnish with garam masala and fried onions before serving.'
     },
     {
       'image': 'assets/images/keema peas karhai.png',
@@ -385,7 +387,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Oil for frying',
       ],
       'instructions':
-          'Heat oil, add cumin seeds and onions, and fry until golden. Add ginger garlic paste and tomatoes, and cook until soft. Add ground meat and cook until browned. Add peas and spices, and cook until peas are tender. Serve hot with rice or bread.'
+      'Heat oil, add cumin seeds and onions, and fry until golden. Add ginger garlic paste and tomatoes, and cook until soft. Add ground meat and cook until browned. Add peas and spices, and cook until peas are tender. Serve hot with rice or bread.'
     },
     {
       'image': 'assets/images/kuffta.png',
@@ -405,7 +407,7 @@ class _HomeScreenState extends State<HomeScreen> {
         '1 tsp garam masala',
       ],
       'instructions':
-          'Mix ground meat with onion, green chilies, cumin, coriander, salt, and egg. Shape into balls and fry until browned. Prepare a gravy with tomato puree and garam masala. Simmer koftas in the gravy for 10-15 minutes before serving.'
+      'Mix ground meat with onion, green chilies, cumin, coriander, salt, and egg. Shape into balls and fry until browned. Prepare a gravy with tomato puree and garam masala. Simmer koftas in the gravy for 10-15 minutes before serving.'
     },
     {
       'image': 'assets/images/mintmargirta.png',
@@ -421,7 +423,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Lemon slices for garnish',
       ],
       'instructions':
-          'Blend mint leaves, lemon juice, sugar, and a little water until smooth. Strain the mixture into a glass, add ice cubes, and top with soda or sparkling water. Garnish with lemon slices and serve chilled.'
+      'Blend mint leaves, lemon juice, sugar, and a little water until smooth. Strain the mixture into a glass, add ice cubes, and top with soda or sparkling water. Garnish with lemon slices and serve chilled.'
     },
     {
       'image': 'assets/images/mutton karhai.png',
@@ -440,7 +442,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Fresh coriander for garnish',
       ],
       'instructions':
-          'Heat oil in a karhai (wok), add cumin seeds and ginger garlic paste, and sauté for a minute. Add mutton, tomatoes, green chilies, and spices. Cook on high heat until the mutton is browned. Lower the heat and cook until the meat is tender and the oil separates. Garnish with fresh coriander and serve hot.'
+      'Heat oil in a karhai (wok), add cumin seeds and ginger garlic paste, and sauté for a minute. Add mutton, tomatoes, green chilies, and spices. Cook on high heat until the mutton is browned. Lower the heat and cook until the meat is tender and the oil separates. Garnish with fresh coriander and serve hot.'
     },
     {
       'image': 'assets/images/pinacolada.png',
@@ -455,7 +457,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Pineapple slices for garnish',
       ],
       'instructions':
-          'Blend pineapple juice, coconut milk, sugar, and crushed ice until smooth. Pour into glasses, garnish with pineapple slices, and serve immediately.'
+      'Blend pineapple juice, coconut milk, sugar, and crushed ice until smooth. Pour into glasses, garnish with pineapple slices, and serve immediately.'
     },
     {
       'image': 'assets/images/red beans tarka.png',
@@ -475,7 +477,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Fresh coriander for garnish',
       ],
       'instructions':
-          'Cook soaked red kidney beans until tender. In another pan, heat oil and fry onions until golden. Add ginger garlic paste, tomatoes, and spices, and cook until oil separates. Add cooked beans and simmer for 10-15 minutes. Garnish with fresh coriander and serve with rice or bread.'
+      'Cook soaked red kidney beans until tender. In another pan, heat oil and fry onions until golden. Add ginger garlic paste, tomatoes, and spices, and cook until oil separates. Add cooked beans and simmer for 10-15 minutes. Garnish with fresh coriander and serve with rice or bread.'
     },
     {
       'image': 'assets/images/seekh kabab.png',
@@ -494,7 +496,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Oil for grilling',
       ],
       'instructions':
-          'Mix ground meat with onion, green chilies, cumin powder, coriander powder, garam masala, and salt. Shape the mixture onto skewers. Grill on medium heat until browned and cooked through. Serve hot with naan or as a side dish.'
+      'Mix ground meat with onion, green chilies, cumin powder, coriander powder, garam masala, and salt. Shape the mixture onto skewers. Grill on medium heat until browned and cooked through. Serve hot with naan or as a side dish.'
     },
     {
       'image': 'assets/images/white pasta.png',
@@ -512,7 +514,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Fresh parsley for garnish',
       ],
       'instructions':
-          'Cook pasta according to package instructions. In a pan, melt butter, add flour, and cook for a minute. Gradually add milk, stirring continuously to avoid lumps. Add grated cheese, salt, pepper, and garlic powder, and cook until the sauce thickens. Toss cooked pasta in the sauce and garnish with fresh parsley.'
+      'Cook pasta according to package instructions. In a pan, melt butter, add flour, and cook for a minute. Gradually add milk, stirring continuously to avoid lumps. Add grated cheese, salt, pepper, and garlic powder, and cook until the sauce thickens. Toss cooked pasta in the sauce and garnish with fresh parsley.'
     },
     {
       'image': 'assets/images/strawberry shak.png',
@@ -527,7 +529,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Strawberry slices for garnish',
       ],
       'instructions':
-          'Blend strawberries, milk, sugar, and vanilla ice cream until smooth. Pour into glasses, garnish with strawberry slices, and serve immediately.'
+      'Blend strawberries, milk, sugar, and vanilla ice cream until smooth. Pour into glasses, garnish with strawberry slices, and serve immediately.'
     },
     {
       'image': 'assets/images/sojii k halwa.png',
@@ -543,7 +545,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Chopped nuts for garnish (almonds, pistachios)',
       ],
       'instructions':
-          'Heat ghee in a pan, add semolina, and roast on low heat until golden and fragrant. In a separate pot, boil water with sugar and cardamom. Slowly add the sugar syrup to the roasted semolina, stirring continuously to avoid lumps. Cook until the mixture thickens and ghee separates. Garnish with chopped nuts before serving.'
+      'Heat ghee in a pan, add semolina, and roast on low heat until golden and fragrant. In a separate pot, boil water with sugar and cardamom. Slowly add the sugar syrup to the roasted semolina, stirring continuously to avoid lumps. Cook until the mixture thickens and ghee separates. Garnish with chopped nuts before serving.'
     },
     {
       'image': 'assets/images/chickenEgg.png',
@@ -564,15 +566,27 @@ class _HomeScreenState extends State<HomeScreen> {
         'Fresh coriander for garnish',
       ],
       'instructions':
-          'Heat oil in a handi (clay pot), fry onions until golden, add ginger garlic paste, tomatoes, and spices. Cook until oil separates. Add chicken pieces and cook until done. Add boiled eggs and simmer for a few minutes. Garnish with fresh coriander and serve hot.'
+      'Heat oil in a handi (clay pot), fry onions until golden, add ginger garlic paste, tomatoes, and spices. Cook until oil separates. Add chicken pieces and cook until done. Add boiled eggs and simmer for a few minutes. Garnish with fresh coriander and serve hot.'
     },
   ];
+  var picId = '';
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: ConstColor.primaryColor,
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (ctx) => CreateScreen(
+                      picId: picId,
+                    )));
+          },
+          child: Icon(Icons.add,color: Colors.white,),
+        ),
         body: Column(
           children: [
             Padding(
@@ -588,7 +602,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.brown),
                   ),
                   Image.asset(
-                    'assets/images/dp.png',
+                    'assets/images/logo.png',
                     height: 8.h,
                   ),
                 ],
@@ -602,12 +616,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(
                     'Categories',
                     style: TextStyle(
-                        fontSize: 0.285.dp, fontWeight: FontWeight.w700,color: Colors.brown,backgroundColor: Colors.yellow),
+                        fontSize: 0.285.dp, fontWeight: FontWeight.w700),
                   ),
                   Text(
                     'see more',
                     style: TextStyle(
-                        fontSize: 0.210.dp, fontWeight: FontWeight.w300,color: Colors.brown),
+                        fontSize: 0.200.dp, fontWeight: FontWeight.w300),
                   )
                 ],
               ),
@@ -623,7 +637,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.symmetric(horizontal: 1.h),
                       child: Container(
                         decoration: BoxDecoration(
-                            // color: Colors.pink.withOpacity(0.5),
+                          // color: Colors.pink.withOpacity(0.5),
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(color: Colors.brown)),
                         child: Column(
@@ -637,7 +651,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           name: categories[index]['name']
                                               .toString(),
                                           specificRecipes: categories[index]
-                                              ['recipes']),
+                                          ['recipes']),
                                     ));
                               },
                               child: Image.asset(
@@ -668,11 +682,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(right: 66.w),
+              padding: EdgeInsets.only(top: 2.h, right: 66.w),
               child: Text(
-                'Trending',
+                'All Recipes',
                 style:
-                    TextStyle(fontSize: 0.315.dp, fontWeight: FontWeight.w700,color: Colors.brown,backgroundColor: Colors.yellow),
+                TextStyle(fontSize: 0.315.dp, fontWeight: FontWeight.w700),
               ),
             ),
             // Expanded(
@@ -686,11 +700,11 @@ class _HomeScreenState extends State<HomeScreen> {
             //     ),
             //     itemBuilder: (ctx, index) {
             //       final recipe = popularRecipes[index];
-            //
+
             //       return Consumer<FavoriteProvider>(
             //         builder: (context, favoriteProvider, child) {
             //           final isFavorite = favoriteProvider.isFavorite(recipe);
-            //
+
             //           return InkWell(
             //             onTap: () {
             //               Navigator.push(
@@ -771,7 +785,124 @@ class _HomeScreenState extends State<HomeScreen> {
             //     },
             //   ),
             // ),
-            getHomeScreenData(),
+            // getHomeScreenData(),
+            Expanded(
+              child: StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection('recipe')
+                      .snapshots(),
+                  builder: (BuildContext ctx,
+                      AsyncSnapshot<QuerySnapshot> snapshot) {
+                    return Expanded(
+                      child: GridView.builder(
+                        itemCount: snapshot.data!.docs.length,
+                        gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 8,
+                          crossAxisSpacing: 8,
+                          childAspectRatio: 2 / 2.5,
+                        ),
+                        itemBuilder: (ctx, index) {
+                          var data = snapshot.data!.docs[index];
+                          var picId = snapshot.data!.docs[index].id;
+
+                          final recipe = popularRecipes[index];
+
+                          return Consumer<FavoriteProvider>(
+                            builder: (context, favoriteProvider, child) {
+                              final isFavorite =
+                              favoriteProvider.isFavorite(recipe);
+
+                              return InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => RecipeDetails(
+                                        name: data['name'].toString(),
+                                        image: data['image'].toString(),
+                                        ingredients:
+                                        data['ingredients'].toString(),
+                                        instructions:
+                                        data['instructions'].toString(),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(color: Colors.brown),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Image.network(
+                                        snapshot.data!.docs[index]['image'],
+                                        height: 15.h,
+                                        width: double.infinity,
+                                        fit: BoxFit.cover,
+                                      ),
+                                      Text(
+                                        snapshot.data!.docs[index]['name'],
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w800,
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 0.200.dp,
+                                        ),
+                                      ),
+                                      Text(
+                                        snapshot.data!.docs[index]['time'],
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Icon(Icons.group),
+                                                Text(
+                                                  snapshot.data!.docs[index]
+                                                  ['person'],
+                                                  style: const TextStyle(
+                                                      fontWeight:
+                                                      FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
+                                            IconButton(
+                                              icon: Icon(
+                                                isFavorite
+                                                    ? Icons.favorite
+                                                    : Icons
+                                                    .favorite_border_outlined,
+                                                color: isFavorite
+                                                    ? Colors.yellow
+                                                    : Colors.brown,
+                                              ),
+                                              onPressed: () {
+                                                favoriteProvider
+                                                    .toggleFavorite(recipe);
+                                              },
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    );
+                  }),
+            ),
           ],
         ),
       ),
@@ -794,6 +925,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 itemBuilder: (ctx, index) {
                   var data = snapshot.data!.docs[index];
+                  var picId = snapshot.data!.docs[index].id;
 
                   final recipe = popularRecipes[index];
 
@@ -815,67 +947,64 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.brown),
-                            ),
-                            child: Column(
-                              children: [
-                                Image.asset(
-                                  recipe['image'],
-                                  height: 13.h,
-                                  width: double.infinity,
-                                  fit: BoxFit.cover,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Colors.brown),
+                          ),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                recipe['image'],
+                                height: 15.h,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
+                              Text(
+                                snapshot.data!.docs[index]['name'],
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w800,
+                                  fontStyle: FontStyle.italic,
+                                  fontSize: 0.200.dp,
                                 ),
-                                Text(
-                                  snapshot.data!.docs[index]['name'],
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w800,
-                                    fontStyle: FontStyle.italic,
-                                    fontSize: 0.225.dp,
-                                  ),
-                                ),
-                                Text(
-                                  '${snapshot.data!.docs[index]['time']} mins',
-                                  style: TextStyle(fontWeight: FontWeight.w500),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(Icons.group),
-                                          Text(
-                                            snapshot.data!.docs[index]['person'],
-                                            style: const TextStyle(
-                                                fontWeight: FontWeight.w500),
-                                          ),
-                                        ],
-                                      ),
-                                      IconButton(
-                                        icon: Icon(
-                                          isFavorite
-                                              ? Icons.favorite
-                                              : Icons.favorite_border_outlined,
-                                          color: isFavorite
-                                              ? Colors.yellow
-                                              : Colors.brown,
+                              ),
+                              Text(
+                                snapshot.data!.docs[index]['time'],
+                                style: TextStyle(fontWeight: FontWeight.w500),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(Icons.group),
+                                        Text(
+                                          snapshot.data!.docs[index]['person'],
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.w500),
                                         ),
-                                        onPressed: () {
-                                          favoriteProvider.toggleFavorite(recipe);
-                                        },
+                                      ],
+                                    ),
+                                    IconButton(
+                                      icon: Icon(
+                                        isFavorite
+                                            ? Icons.favorite
+                                            : Icons.favorite_border_outlined,
+                                        color: isFavorite
+                                            ? Colors.yellow
+                                            : Colors.brown,
                                       ),
-                                    ],
-                                  ),
+                                      onPressed: () {
+                                        favoriteProvider.toggleFavorite(recipe);
+                                      },
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       );
