@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cook_together/UI/Screens/all_categories/all_categories.dart';
+import 'package:cook_together/UI/Screens/create_screen/create_screen.dart';
 import 'package:cook_together/UI/Screens/recipe_detailscreen/Recipe_details.dart';
+import 'package:cook_together/core/constants/const_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -567,11 +569,24 @@ class _HomeScreenState extends State<HomeScreen> {
           'Heat oil in a handi (clay pot), fry onions until golden, add ginger garlic paste, tomatoes, and spices. Cook until oil separates. Add chicken pieces and cook until done. Add boiled eggs and simmer for a few minutes. Garnish with fresh coriander and serve hot.'
     },
   ];
+  var picId = '';
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: ConstColor.primaryColor,
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (ctx) => CreateScreen(
+                          picId: picId,
+                        )));
+          },
+          child: Icon(Icons.add,color: Colors.white,),
+        ),
         body: Column(
           children: [
             Padding(
@@ -667,110 +682,227 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(right: 66.w),
+              padding: EdgeInsets.only(top: 2.h, right: 66.w),
               child: Text(
-                'Trending',
+                'All Recipes',
                 style:
                     TextStyle(fontSize: 0.315.dp, fontWeight: FontWeight.w700),
               ),
             ),
+            // Expanded(
+            //   child: GridView.builder(
+            //     itemCount: popularRecipes.length,
+            //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            //       crossAxisCount: 2,
+            //       mainAxisSpacing: 8,
+            //       crossAxisSpacing: 8,
+            //       childAspectRatio: 2 / 2.5,
+            //     ),
+            //     itemBuilder: (ctx, index) {
+            //       final recipe = popularRecipes[index];
+
+            //       return Consumer<FavoriteProvider>(
+            //         builder: (context, favoriteProvider, child) {
+            //           final isFavorite = favoriteProvider.isFavorite(recipe);
+
+            //           return InkWell(
+            //             onTap: () {
+            //               Navigator.push(
+            //                 context,
+            //                 MaterialPageRoute(
+            //                   builder: (context) => RecipeDetails(
+            //                     name: recipe['name'].toString(),
+            //                     image: recipe['image'].toString(),
+            //                     ingredients: recipe['ingredients'].toString(),
+            //                     instructions: recipe['instructions'].toString(),
+            //                   ),
+            //                 ),
+            //               );
+            //             },
+            //             child: Container(
+            //               decoration: BoxDecoration(
+            //                 borderRadius: BorderRadius.circular(10),
+            //                 border: Border.all(color: Colors.brown),
+            //               ),
+            //               child: Column(
+            //                 children: [
+            //                   Image.asset(
+            //                     recipe['image'],
+            //                     height: 15.h,
+            //                     width: double.infinity,
+            //                     fit: BoxFit.cover,
+            //                   ),
+            //                   Text(
+            //                     recipe['name'],
+            //                     style: TextStyle(
+            //                       fontWeight: FontWeight.w800,
+            //                       fontStyle: FontStyle.italic,
+            //                       fontSize: 0.200.dp,
+            //                     ),
+            //                   ),
+            //                   Text(
+            //                     recipe['time'],
+            //                     style: TextStyle(fontWeight: FontWeight.w500),
+            //                   ),
+            //                   Padding(
+            //                     padding: const EdgeInsets.all(8.0),
+            //                     child: Row(
+            //                       mainAxisAlignment:
+            //                           MainAxisAlignment.spaceAround,
+            //                       children: [
+            //                         Row(
+            //                           children: [
+            //                             Icon(Icons.group),
+            //                             Text(
+            //                               recipe['people'],
+            //                               style: const TextStyle(
+            //                                   fontWeight: FontWeight.w500),
+            //                             ),
+            //                           ],
+            //                         ),
+            //                         IconButton(
+            //                           icon: Icon(
+            //                             isFavorite
+            //                                 ? Icons.favorite
+            //                                 : Icons.favorite_border_outlined,
+            //                             color: isFavorite
+            //                                 ? Colors.yellow
+            //                                 : Colors.brown,
+            //                           ),
+            //                           onPressed: () {
+            //                             favoriteProvider.toggleFavorite(recipe);
+            //                           },
+            //                         ),
+            //                       ],
+            //                     ),
+            //                   ),
+            //                 ],
+            //               ),
+            //             ),
+            //           );
+            //         },
+            //       );
+            //     },
+            //   ),
+            // ),
+            // getHomeScreenData(),
             Expanded(
-              child: GridView.builder(
-                itemCount: popularRecipes.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 8,
-                  childAspectRatio: 2 / 2.5,
-                ),
-                itemBuilder: (ctx, index) {
-                  final recipe = popularRecipes[index];
+              child: StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection('recipe')
+                      .snapshots(),
+                  builder: (BuildContext ctx,
+                      AsyncSnapshot<QuerySnapshot> snapshot) {
+                    return Expanded(
+                      child: GridView.builder(
+                        itemCount: snapshot.data!.docs.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 8,
+                          crossAxisSpacing: 8,
+                          childAspectRatio: 2 / 2.5,
+                        ),
+                        itemBuilder: (ctx, index) {
+                          var data = snapshot.data!.docs[index];
+                          var picId = snapshot.data!.docs[index].id;
 
-                  return Consumer<FavoriteProvider>(
-                    builder: (context, favoriteProvider, child) {
-                      final isFavorite = favoriteProvider.isFavorite(recipe);
+                          final recipe = popularRecipes[index];
 
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => RecipeDetails(
-                                name: recipe['name'].toString(),
-                                image: recipe['image'].toString(),
-                                ingredients: recipe['ingredients'].toString(),
-                                instructions: recipe['instructions'].toString(),
-                              ),
-                            ),
+                          return Consumer<FavoriteProvider>(
+                            builder: (context, favoriteProvider, child) {
+                              final isFavorite =
+                                  favoriteProvider.isFavorite(recipe);
+
+                              return InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => RecipeDetails(
+                                        name: data['name'].toString(),
+                                        image: recipe['image'].toString(),
+                                        ingredients:
+                                            data['ingredients'].toString(),
+                                        instructions:
+                                            data['instructions'].toString(),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(color: Colors.brown),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Image.network(
+                                        snapshot.data!.docs[index]['image'],
+                                        height: 15.h,
+                                        width: double.infinity,
+                                        fit: BoxFit.cover,
+                                      ),
+                                      Text(
+                                        snapshot.data!.docs[index]['name'],
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w800,
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 0.200.dp,
+                                        ),
+                                      ),
+                                      Text(
+                                        snapshot.data!.docs[index]['time'],
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Icon(Icons.group),
+                                                Text(
+                                                  snapshot.data!.docs[index]
+                                                      ['person'],
+                                                  style: const TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
+                                            IconButton(
+                                              icon: Icon(
+                                                isFavorite
+                                                    ? Icons.favorite
+                                                    : Icons
+                                                        .favorite_border_outlined,
+                                                color: isFavorite
+                                                    ? Colors.yellow
+                                                    : Colors.brown,
+                                              ),
+                                              onPressed: () {
+                                                favoriteProvider
+                                                    .toggleFavorite(recipe);
+                                              },
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
                           );
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.brown),
-                          ),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                recipe['image'],
-                                height: 15.h,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                              ),
-                              Text(
-                                recipe['name'],
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: 0.200.dp,
-                                ),
-                              ),
-                              Text(
-                                recipe['time'],
-                                style: TextStyle(fontWeight: FontWeight.w500),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(Icons.group),
-                                        Text(
-                                          recipe['people'],
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.w500),
-                                        ),
-                                      ],
-                                    ),
-                                    IconButton(
-                                      icon: Icon(
-                                        isFavorite
-                                            ? Icons.favorite
-                                            : Icons.favorite_border_outlined,
-                                        color: isFavorite
-                                            ? Colors.yellow
-                                            : Colors.brown,
-                                      ),
-                                      onPressed: () {
-                                        favoriteProvider.toggleFavorite(recipe);
-                                      },
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
+                      ),
+                    );
+                  }),
             ),
-            // getHomeScreenData(),
           ],
         ),
       ),
@@ -793,6 +925,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 itemBuilder: (ctx, index) {
                   var data = snapshot.data!.docs[index];
+                  var picId = snapshot.data!.docs[index].id;
 
                   final recipe = popularRecipes[index];
 
