@@ -20,7 +20,7 @@ class _CreateScreenState extends State<CreateScreen> {
     TextEditingController categoryController = TextEditingController();
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.pinkAccent.withOpacity(0.06),
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -31,13 +31,13 @@ class _CreateScreenState extends State<CreateScreen> {
                     child: Icon(
                       Icons.camera_alt,
                       size: 65,
-                      color: Colors.pink,
+                      color: Colors.brown,
                     ),
                     height: 30.h,
                     width: 100.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.pink)),
+                        border: Border.all(color: Colors.brown)),
                   ),
                 ),
               ),
@@ -49,9 +49,9 @@ class _CreateScreenState extends State<CreateScreen> {
                     controller: nameController,
                     decoration: InputDecoration(
                         hintText: 'Enter recipe name...',
-                        suffixIcon: Icon(Icons.edit, color: Colors.pink),
+                        suffixIcon: Icon(Icons.edit, color: Colors.brown),
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20))),
+                            borderRadius: BorderRadius.circular(20),borderSide: BorderSide(color: Colors.yellow.shade500))),
                   ),
                 ),
               ),
@@ -61,7 +61,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   controller: durationController,
                   decoration: InputDecoration(
                       hintText: 'Enter time duration...',
-                      suffixIcon: Icon(Icons.edit, color: Colors.pink),
+                      suffixIcon: Icon(Icons.edit, color: Colors.brown),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20))),
                 ),
@@ -72,7 +72,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   controller: personController,
                   decoration: InputDecoration(
                       hintText: 'Enter no.of persons...',
-                      suffixIcon: Icon(Icons.edit, color: Colors.pink),
+                      suffixIcon: Icon(Icons.edit, color: Colors.brown),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20))),
                 ),
@@ -83,7 +83,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   controller: ingredientsController,
                   decoration: InputDecoration(
                       hintText: 'Enter Ingredients...',
-                      suffixIcon: Icon(Icons.edit, color: Colors.pink),
+                      suffixIcon: Icon(Icons.edit, color: Colors.brown),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20))),
                 ),
@@ -94,7 +94,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   controller: instructionsController,
                   decoration: InputDecoration(
                       hintText: 'Enter instructions...',
-                      suffixIcon: Icon(Icons.edit, color: Colors.pink),
+                      suffixIcon: Icon(Icons.edit, color: Colors.brown),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                       )),
@@ -106,7 +106,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   controller: categoryController,
                   decoration: InputDecoration(
                       hintText: 'Enter Category...',
-                      suffixIcon: Icon(Icons.edit, color: Colors.pink),
+                      suffixIcon: Icon(Icons.edit, color: Colors.brown),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20))),
                 ),
@@ -139,12 +139,12 @@ class _CreateScreenState extends State<CreateScreen> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic,
-                          fontSize: 30,
-                          color: Colors.pink),
+                          fontSize: 0.350.dp,
+                          color: Colors.yellow.shade600),
                     )),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      border: Border.all(color: Colors.pink),
+                      border: Border.all(color: Colors.brown),
                     ),
                   ),
                 ),

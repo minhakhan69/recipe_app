@@ -13,7 +13,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     TextEditingController searchController = TextEditingController();
     return Scaffold(
-      backgroundColor: Colors.pinkAccent.withOpacity(0.06),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.only(top: 8.h),
         child: Column(
@@ -25,9 +25,10 @@ class _SearchScreenState extends State<SearchScreen> {
                 decoration: InputDecoration(
                   suffixIcon: Icon(
                     Icons.search,
-                    color: Colors.pink,
+                    color: Colors.brown,
                   ),
                   hintText: 'search your recipe...',
+                  enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.brown.shade900)),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
                 ),

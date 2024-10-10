@@ -572,6 +572,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             Padding(
@@ -587,7 +588,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.brown),
                   ),
                   Image.asset(
-                    'assets/images/logo.png',
+                    'assets/images/dp.png',
                     height: 8.h,
                   ),
                 ],
@@ -601,12 +602,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(
                     'Categories',
                     style: TextStyle(
-                        fontSize: 0.285.dp, fontWeight: FontWeight.w700),
+                        fontSize: 0.285.dp, fontWeight: FontWeight.w700,color: Colors.brown,backgroundColor: Colors.yellow),
                   ),
                   Text(
                     'see more',
                     style: TextStyle(
-                        fontSize: 0.200.dp, fontWeight: FontWeight.w300),
+                        fontSize: 0.210.dp, fontWeight: FontWeight.w300,color: Colors.brown),
                   )
                 ],
               ),
@@ -671,106 +672,106 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                 'Trending',
                 style:
-                    TextStyle(fontSize: 0.315.dp, fontWeight: FontWeight.w700),
+                    TextStyle(fontSize: 0.315.dp, fontWeight: FontWeight.w700,color: Colors.brown,backgroundColor: Colors.yellow),
               ),
             ),
-            Expanded(
-              child: GridView.builder(
-                itemCount: popularRecipes.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 8,
-                  childAspectRatio: 2 / 2.5,
-                ),
-                itemBuilder: (ctx, index) {
-                  final recipe = popularRecipes[index];
-
-                  return Consumer<FavoriteProvider>(
-                    builder: (context, favoriteProvider, child) {
-                      final isFavorite = favoriteProvider.isFavorite(recipe);
-
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => RecipeDetails(
-                                name: recipe['name'].toString(),
-                                image: recipe['image'].toString(),
-                                ingredients: recipe['ingredients'].toString(),
-                                instructions: recipe['instructions'].toString(),
-                              ),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.brown),
-                          ),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                recipe['image'],
-                                height: 15.h,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                              ),
-                              Text(
-                                recipe['name'],
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: 0.200.dp,
-                                ),
-                              ),
-                              Text(
-                                recipe['time'],
-                                style: TextStyle(fontWeight: FontWeight.w500),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(Icons.group),
-                                        Text(
-                                          recipe['people'],
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.w500),
-                                        ),
-                                      ],
-                                    ),
-                                    IconButton(
-                                      icon: Icon(
-                                        isFavorite
-                                            ? Icons.favorite
-                                            : Icons.favorite_border_outlined,
-                                        color: isFavorite
-                                            ? Colors.yellow
-                                            : Colors.brown,
-                                      ),
-                                      onPressed: () {
-                                        favoriteProvider.toggleFavorite(recipe);
-                                      },
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
-            ),
-            // getHomeScreenData(),
+            // Expanded(
+            //   child: GridView.builder(
+            //     itemCount: popularRecipes.length,
+            //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            //       crossAxisCount: 2,
+            //       mainAxisSpacing: 8,
+            //       crossAxisSpacing: 8,
+            //       childAspectRatio: 2 / 2.5,
+            //     ),
+            //     itemBuilder: (ctx, index) {
+            //       final recipe = popularRecipes[index];
+            //
+            //       return Consumer<FavoriteProvider>(
+            //         builder: (context, favoriteProvider, child) {
+            //           final isFavorite = favoriteProvider.isFavorite(recipe);
+            //
+            //           return InkWell(
+            //             onTap: () {
+            //               Navigator.push(
+            //                 context,
+            //                 MaterialPageRoute(
+            //                   builder: (context) => RecipeDetails(
+            //                     name: recipe['name'].toString(),
+            //                     image: recipe['image'].toString(),
+            //                     ingredients: recipe['ingredients'].toString(),
+            //                     instructions: recipe['instructions'].toString(),
+            //                   ),
+            //                 ),
+            //               );
+            //             },
+            //             child: Container(
+            //               decoration: BoxDecoration(
+            //                 borderRadius: BorderRadius.circular(10),
+            //                 border: Border.all(color: Colors.brown),
+            //               ),
+            //               child: Column(
+            //                 children: [
+            //                   Image.asset(
+            //                     recipe['image'],
+            //                     height: 15.h,
+            //                     width: double.infinity,
+            //                     fit: BoxFit.cover,
+            //                   ),
+            //                   Text(
+            //                     recipe['name'],
+            //                     style: TextStyle(
+            //                       fontWeight: FontWeight.w800,
+            //                       fontStyle: FontStyle.italic,
+            //                       fontSize: 0.200.dp,
+            //                     ),
+            //                   ),
+            //                   Text(
+            //                     recipe['time'],
+            //                     style: TextStyle(fontWeight: FontWeight.w500),
+            //                   ),
+            //                   Padding(
+            //                     padding: const EdgeInsets.all(8.0),
+            //                     child: Row(
+            //                       mainAxisAlignment:
+            //                           MainAxisAlignment.spaceAround,
+            //                       children: [
+            //                         Row(
+            //                           children: [
+            //                             Icon(Icons.group),
+            //                             Text(
+            //                               recipe['people'],
+            //                               style: const TextStyle(
+            //                                   fontWeight: FontWeight.w500),
+            //                             ),
+            //                           ],
+            //                         ),
+            //                         IconButton(
+            //                           icon: Icon(
+            //                             isFavorite
+            //                                 ? Icons.favorite
+            //                                 : Icons.favorite_border_outlined,
+            //                             color: isFavorite
+            //                                 ? Colors.yellow
+            //                                 : Colors.brown,
+            //                           ),
+            //                           onPressed: () {
+            //                             favoriteProvider.toggleFavorite(recipe);
+            //                           },
+            //                         ),
+            //                       ],
+            //                     ),
+            //                   ),
+            //                 ],
+            //               ),
+            //             ),
+            //           );
+            //         },
+            //       );
+            //     },
+            //   ),
+            // ),
+            getHomeScreenData(),
           ],
         ),
       ),
@@ -814,64 +815,67 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.brown),
-                          ),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                recipe['image'],
-                                height: 15.h,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                              ),
-                              Text(
-                                snapshot.data!.docs[index]['name'],
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: 0.200.dp,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.brown),
+                            ),
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  recipe['image'],
+                                  height: 13.h,
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
                                 ),
-                              ),
-                              Text(
-                                snapshot.data!.docs[index]['time'],
-                                style: TextStyle(fontWeight: FontWeight.w500),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(Icons.group),
-                                        Text(
-                                          snapshot.data!.docs[index]['person'],
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.w500),
-                                        ),
-                                      ],
-                                    ),
-                                    IconButton(
-                                      icon: Icon(
-                                        isFavorite
-                                            ? Icons.favorite
-                                            : Icons.favorite_border_outlined,
-                                        color: isFavorite
-                                            ? Colors.yellow
-                                            : Colors.brown,
+                                Text(
+                                  snapshot.data!.docs[index]['name'],
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w800,
+                                    fontStyle: FontStyle.italic,
+                                    fontSize: 0.225.dp,
+                                  ),
+                                ),
+                                Text(
+                                  '${snapshot.data!.docs[index]['time']} mins',
+                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(Icons.group),
+                                          Text(
+                                            snapshot.data!.docs[index]['person'],
+                                            style: const TextStyle(
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                        ],
                                       ),
-                                      onPressed: () {
-                                        favoriteProvider.toggleFavorite(recipe);
-                                      },
-                                    ),
-                                  ],
+                                      IconButton(
+                                        icon: Icon(
+                                          isFavorite
+                                              ? Icons.favorite
+                                              : Icons.favorite_border_outlined,
+                                          color: isFavorite
+                                              ? Colors.yellow
+                                              : Colors.brown,
+                                        ),
+                                        onPressed: () {
+                                          favoriteProvider.toggleFavorite(recipe);
+                                        },
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       );

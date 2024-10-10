@@ -12,9 +12,9 @@ class AllCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(name),
+      child: Scaffold(backgroundColor: Colors.white,
+        appBar: AppBar(backgroundColor: Colors.brown.withOpacity(0.5),
+          title: Text(name,style:TextStyle(color: Colors.brown,fontSize: 0.330.dp,fontWeight: FontWeight.bold)),
         ),
         body: Column(
           children: [
@@ -28,7 +28,7 @@ class AllCategories extends StatelessWidget {
       
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.zero,
-                          border: Border.all(color: Colors.pink),
+                          border: Border.all(color: Colors.brown),
                           
                         ),
                         height: 50.h,
@@ -45,7 +45,7 @@ class AllCategories extends StatelessWidget {
                                 specificRecipes[index]['name'],
                                 style: TextStyle(
                                   fontSize: 0.280.dp,
-                                  fontWeight: FontWeight.w800,color: Colors.pink
+                                  fontWeight: FontWeight.w800,color: Colors.brown,backgroundColor: Colors.yellow
                                 ),
                               ),
                               Padding(

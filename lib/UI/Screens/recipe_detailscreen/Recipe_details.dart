@@ -18,6 +18,7 @@ class RecipeDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -29,13 +30,16 @@ class RecipeDetails extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 0.300.dp,
                     fontStyle: FontStyle.italic,
-                    color: Colors.pink,
+                    color: Colors.brown.shade700,
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Image.asset(image,height: 30.h,),
+                child: Image.asset(
+                  image,
+                  height: 30.h,
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 3.h, bottom: 1.h, right: 30.h),
@@ -44,14 +48,16 @@ class RecipeDetails extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 0.250.dp,
-                      color: Colors.pink),
+                      color: Colors.brown,
+                      backgroundColor: Colors.yellow),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(ingredients,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 0.250.dp, fontWeight: FontWeight.w500)),
+                    style: TextStyle(
+                        fontSize: 0.250.dp, fontWeight: FontWeight.w500)),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 3.h, bottom: 1.h, right: 32.h),
@@ -60,7 +66,8 @@ class RecipeDetails extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 0.250.dp,
-                      color: Colors.pink),
+                      color: Colors.brown,
+                      backgroundColor: Colors.yellow),
                 ),
               ),
               Padding(
@@ -68,7 +75,9 @@ class RecipeDetails extends StatelessWidget {
                 child: Text(
                   instructions,
                   textAlign: TextAlign.start,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
             ],
