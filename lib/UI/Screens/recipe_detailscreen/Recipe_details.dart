@@ -35,7 +35,10 @@ class RecipeDetails extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Image.asset(image,height: 30.h,),
+                child: Image.network(
+                  image,
+                  height: 30.h,
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 3.h, bottom: 1.h, right: 30.h),
@@ -51,7 +54,8 @@ class RecipeDetails extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(ingredients,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 0.250.dp, fontWeight: FontWeight.w500)),
+                    style: TextStyle(
+                        fontSize: 0.250.dp, fontWeight: FontWeight.w500)),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 3.h, bottom: 1.h, right: 32.h),

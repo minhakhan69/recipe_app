@@ -821,7 +821,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     MaterialPageRoute(
                                       builder: (context) => RecipeDetails(
                                         name: data['name'].toString(),
-                                        image: recipe['image'].toString(),
+                                        image: data['image'].toString(),
                                         ingredients:
                                             data['ingredients'].toString(),
                                         instructions:
