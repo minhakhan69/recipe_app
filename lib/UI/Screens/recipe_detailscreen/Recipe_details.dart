@@ -29,7 +29,7 @@ class RecipeDetails extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 0.300.dp,
                     fontStyle: FontStyle.italic,
-                    color: Colors.pink,
+                    color: Colors.yellow.shade700,
                   ),
                 ),
               ),
@@ -47,7 +47,7 @@ class RecipeDetails extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 0.250.dp,
-                      color: Colors.pink),
+                      color: Colors.brown.shade900),
                 ),
               ),
               Padding(
@@ -64,7 +64,7 @@ class RecipeDetails extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 0.250.dp,
-                      color: Colors.pink),
+                      color: Colors.brown.shade900),
                 ),
               ),
               Padding(

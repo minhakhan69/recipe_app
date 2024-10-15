@@ -53,7 +53,7 @@ class _SignupscreenState extends State<Signupscreen> {
             child: Center(
               child: Column(
                 children: [
-                  Image.asset('assets/images/logo.png', height: 15.h),
+                  Image.asset('assets/images/letssssCookTogether.png', height: 15.h),
                   SizedBox(height: 6.h),
                   Column(children: [
                     Padding(
@@ -63,7 +63,7 @@ class _SignupscreenState extends State<Signupscreen> {
                         style: TextStyle(
                             fontSize: 0.310.dp,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black),
+                            color: Colors.brown.shade900),
                       ),
                     ),
                     Padding(
@@ -72,7 +72,7 @@ class _SignupscreenState extends State<Signupscreen> {
                         'Email',
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
-                            color: Colors.black,
+                            color: Colors.brown.shade900,
                             fontSize: 0.250.dp),
                       ),
                     ),
@@ -85,6 +85,7 @@ class _SignupscreenState extends State<Signupscreen> {
                         controller: emailController,
                         decoration: InputDecoration(
                           hintText: 'Enter your Email id',
+                          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.brown)),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(25),
                           ),
@@ -98,7 +99,7 @@ class _SignupscreenState extends State<Signupscreen> {
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 0.250.dp,
-                            color: Colors.black),
+                            color: Colors.brown.shade900),
                       ),
                     ),
                     SizedBox(
@@ -110,6 +111,7 @@ class _SignupscreenState extends State<Signupscreen> {
                         controller: passwordController,
                         decoration: InputDecoration(
                           hintText: 'Enter a password',
+                          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.brown)),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(25)),
                         ),
@@ -122,7 +124,7 @@ class _SignupscreenState extends State<Signupscreen> {
                         style: TextStyle(
                             fontSize: 0.250.dp,
                             fontWeight: FontWeight.w700,
-                            color: Colors.black),
+                            color: Colors.brown),
                       ),
                     ),
                     Padding(
@@ -131,6 +133,7 @@ class _SignupscreenState extends State<Signupscreen> {
                         controller: nameController,
                         decoration: InputDecoration(
                           hintText: 'Enter your Name',
+                          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.brown)),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(25),
                           ),
@@ -144,7 +147,7 @@ class _SignupscreenState extends State<Signupscreen> {
                         style: TextStyle(
                             fontSize: 0.250.dp,
                             fontWeight: FontWeight.w700,
-                            color: Colors.black),
+                            color: Colors.brown),
                       ),
                     ),
                     Padding(
@@ -153,6 +156,7 @@ class _SignupscreenState extends State<Signupscreen> {
                         controller: numberController,
                         decoration: InputDecoration(
                           hintText: 'Enter your phone number',
+                          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.brown)),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(25),
                           ),
@@ -171,7 +175,7 @@ class _SignupscreenState extends State<Signupscreen> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 0.250.dp,
-                            color: Colors.black),
+                            color: Colors.brown.shade900),
                       ),
                     ),
                     InkWell(
@@ -197,11 +201,11 @@ class _SignupscreenState extends State<Signupscreen> {
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 0.315.dp,
-                              color: Colors.white),
+                              color: Colors.brown.shade900),
                         )),
                         decoration: BoxDecoration(
-                          color: Colors.pink,
-                          border: Border.all(color: Colors.purple),
+                          color: Colors.yellow.shade600,
+                          border: Border.all(color: Colors.brown.shade900),
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
@@ -235,7 +239,7 @@ class _SignupscreenState extends State<Signupscreen> {
                               style: TextStyle(
                                   fontSize: 0.280.dp,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black),
+                                  color: Colors.brown.shade900),
                             ),
                           ),
                         )

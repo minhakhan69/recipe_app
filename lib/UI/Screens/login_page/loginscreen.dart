@@ -26,7 +26,7 @@ class _LoginscreenState extends State<Loginscreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
+      child: Scaffold(backgroundColor: Colors.white,
       
         body: SingleChildScrollView(
           child: Padding(
@@ -34,7 +34,7 @@ class _LoginscreenState extends State<Loginscreen> {
             child: Center(
               child: Column(
                 children: [
-                  Image.asset('assets/images/logo.png', height: 15.h),
+                  Image.asset('assets/images/letssssCookTogether.png', height: 15.h),
                   SizedBox(height: 6.h),
       
                   Padding(
@@ -47,7 +47,7 @@ class _LoginscreenState extends State<Loginscreen> {
                           style: TextStyle(
                               fontSize: 0.315.dp,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black),
+                              color: Colors.brown.shade500),
                         ),
                         Padding(
                           padding: EdgeInsets.only(right: 80.w,top: 2.h),
@@ -55,7 +55,7 @@ class _LoginscreenState extends State<Loginscreen> {
                             'Email',
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
-                                color: Colors.black,
+                                color: Colors.brown.shade500,
                                 fontSize: 0.250.dp),
                           ),
                         ),
@@ -68,8 +68,9 @@ class _LoginscreenState extends State<Loginscreen> {
                             controller: EmailController,
                             decoration: InputDecoration(
                               hintText: 'Enter your Email id',
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.brown)),
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25),
+                                borderRadius: BorderRadius.circular(25),borderSide: BorderSide(color: Colors.brown)
                               ),
                             ),
                           ),
@@ -81,7 +82,7 @@ class _LoginscreenState extends State<Loginscreen> {
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 0.250.dp,
-                                color: Colors.black),
+                                color: Colors.brown.shade500),
                           ),
                         ),
                         SizedBox(
@@ -93,8 +94,9 @@ class _LoginscreenState extends State<Loginscreen> {
                             controller: PasswordController,
                             decoration: InputDecoration(
                               hintText: 'Enter a password',
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.brown)),
                               border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(25)),
+                                  borderRadius: BorderRadius.circular(25), borderSide: BorderSide(color: Colors.brown)),
                             ),
                           ),
                         ),
@@ -114,7 +116,7 @@ class _LoginscreenState extends State<Loginscreen> {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 0.285.dp,
-                                color: Colors.black),
+                                color: Colors.brown),
                           ),
       
                         ),
@@ -147,8 +149,8 @@ class _LoginscreenState extends State<Loginscreen> {
                                       fontWeight: FontWeight.w600, fontSize: 0.315.dp,color: Colors.white),
                                 )),
                             decoration: BoxDecoration(
-                              color: Colors.pink,
-                              border: Border.all(color: Colors.purple),
+                              color: Colors.yellow.shade600,
+                              border: Border.all(color: Colors.brown),
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
@@ -178,7 +180,7 @@ class _LoginscreenState extends State<Loginscreen> {
                                   style: TextStyle(
                                       fontSize: 0.265.dp,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.black),
+                                      color: Colors.brown.shade700),
                                 ),
                               ),
                             )
