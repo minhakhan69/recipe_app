@@ -128,13 +128,13 @@ class _CreateScreenState extends State<CreateScreen> {
                     width: 45.w,
                     child: Center(
                         child: Text(
-                          'Save',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FontStyle.italic,
-                              fontSize: 30,
-                              color: Colors.pink),
-                        )),
+                      'Save',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic,
+                          fontSize: 30,
+                          color: Colors.pink),
+                    )),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       border: Border.all(color: Colors.pink),
@@ -158,7 +158,7 @@ class _CreateScreenState extends State<CreateScreen> {
         if (file!.path == null) return;
 
         String uniqueFilename =
-        DateTime.now().millisecondsSinceEpoch.toString();
+            DateTime.now().millisecondsSinceEpoch.toString();
 
         Reference referenceRoot = FirebaseStorage.instance.ref();
 
@@ -179,7 +179,7 @@ class _CreateScreenState extends State<CreateScreen> {
             .update({
           'image': imageId,
         }).then(
-              (value) {
+          (value) {
             print("photo uploaded succesfully");
           },
         );
