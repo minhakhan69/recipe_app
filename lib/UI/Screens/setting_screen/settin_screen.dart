@@ -18,7 +18,7 @@ class _SettinScreenState extends State<SettinScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.pinkAccent.withOpacity(0.06),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           actions: [
             InkWell(
@@ -29,7 +29,7 @@ class _SettinScreenState extends State<SettinScreen> {
                         builder: (context) => ProfileScreen(),
                       ));
                 },
-                child: Icon(Icons.settings)),
+                child: Icon(Icons.settings,color: Colors.brown.shade900,)),
             SizedBox(
               width: 2.h,
             )
@@ -43,7 +43,7 @@ class _SettinScreenState extends State<SettinScreen> {
               fontWeight: FontWeight.w700,
             ),
           ),
-          backgroundColor: Colors.pink,
+          backgroundColor: Colors.yellow.shade700,
         ),
         body: getUserProfile(),
       ),
@@ -69,8 +69,8 @@ class _SettinScreenState extends State<SettinScreen> {
                     height: 25.h,
                     width: 100.w,
                     decoration: BoxDecoration(
-                        color: Colors.pinkAccent.withOpacity(0.09),
-                        border: Border.all(color: Colors.pink)),
+                        color: Colors.yellow.withOpacity(0.07),
+                        border: Border.all(color: Colors.brown.shade900)),
                     child: Row(
                       children: [
                         Padding(
@@ -81,7 +81,7 @@ class _SettinScreenState extends State<SettinScreen> {
                             radius: 70,
                             child: Padding(
                               padding: EdgeInsets.only(left: 17.h),
-                              child: Icon(Icons.edit),
+                              child: Icon(Icons.edit,color: Colors.brown.shade900,),
                             ),
                           ),
                         ),
@@ -95,7 +95,7 @@ class _SettinScreenState extends State<SettinScreen> {
                       style: TextStyle(
                           fontStyle: FontStyle.italic,
                           fontSize: 0.235.dp,
-                          fontWeight: FontWeight.w700),
+                          fontWeight: FontWeight.w700,color: Colors.brown.shade900),
                     ),
                   ),
                   Padding(
@@ -113,9 +113,9 @@ class _SettinScreenState extends State<SettinScreen> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.pinkAccent.withOpacity(0.09),
+                        color: Colors.yellow.withOpacity(0.07),
                         borderRadius: BorderRadius.circular(15),
-                        border: Border.all(color: Colors.pink),
+                        border: Border.all(color: Colors.brown.shade900),
                       ),
                     ),
                   ),
@@ -126,7 +126,7 @@ class _SettinScreenState extends State<SettinScreen> {
                       style: TextStyle(
                           fontStyle: FontStyle.italic,
                           fontSize: 0.250.dp,
-                          fontWeight: FontWeight.w700),
+                          fontWeight: FontWeight.w700,color: Colors.brown.shade900),
                     ),
                   ),
                   Padding(
@@ -142,9 +142,9 @@ class _SettinScreenState extends State<SettinScreen> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.pinkAccent.withOpacity(0.09),
+                        color: Colors.yellow.withOpacity(0.07),
                         borderRadius: BorderRadius.circular(15),
-                        border: Border.all(color: Colors.pink),
+                        border: Border.all(color: Colors.brown.shade900),
                       ),
                     ),
                   ),
@@ -155,7 +155,7 @@ class _SettinScreenState extends State<SettinScreen> {
                       style: TextStyle(
                           fontStyle: FontStyle.italic,
                           fontSize: 0.250.dp,
-                          fontWeight: FontWeight.w700),
+                          fontWeight: FontWeight.w700,color: Colors.brown.shade900),
                     ),
                   ),
                   Padding(
@@ -171,9 +171,9 @@ class _SettinScreenState extends State<SettinScreen> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.pinkAccent.withOpacity(0.09),
+                        color: Colors.yellow.withOpacity(0.07),
                         borderRadius: BorderRadius.circular(15),
-                        border: Border.all(color: Colors.pink),
+                        border: Border.all(color: Colors.brown.shade900),
                       ),
                     ),
                   ),
@@ -187,11 +187,11 @@ class _SettinScreenState extends State<SettinScreen> {
                         style: TextStyle(
                             fontSize: 0.290.dp,
                             fontStyle: FontStyle.italic,
-                            fontWeight: FontWeight.w500),
+                            fontWeight: FontWeight.w500,color: Colors.brown.shade900),
                       )),
                       decoration: BoxDecoration(
-                        color: Colors.pinkAccent.withOpacity(0.09),
-                        border: Border.all(color: Colors.pink),
+                        color: Colors.yellow.withOpacity(0.07),
+                        border: Border.all(color: Colors.brown.shade900),
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),

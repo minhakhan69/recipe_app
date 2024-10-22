@@ -60,12 +60,12 @@ class _BottomnavigationbarState extends State<Bottomnavigationbar> {
           isAnimated: true,
           chipStyle: ChipStyle(
             notchSmoothness: NotchSmoothness.sharpEdge,
-            background: Colors.pink,
+            background: Colors.yellow.shade600,
           ),
           items: items,
-          backgroundColor: Colors.pink,
+          backgroundColor: Colors.yellow.shade800,
           indexSelected: Selectedindex,
-          color: Colors.white,
+          color: Colors.brown.shade900,
           colorSelected: Colors.white,
           onTap: (int index) => setState(() {
             Selectedindex = index;

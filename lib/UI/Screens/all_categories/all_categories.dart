@@ -13,8 +13,8 @@ class AllCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(backgroundColor: Colors.white,
-        appBar: AppBar(backgroundColor: Colors.brown.withOpacity(0.5),
-          title: Text(name,style:TextStyle(color: Colors.brown,fontSize: 0.330.dp,fontWeight: FontWeight.bold)),
+        appBar: AppBar(backgroundColor: Colors.yellow.shade700,
+          title: Text(name,style:TextStyle(color: Colors.white,fontSize: 0.330.dp,fontWeight: FontWeight.bold)),
         ),
         body: Column(
           children: [
